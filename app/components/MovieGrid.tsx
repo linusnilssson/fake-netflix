@@ -5,28 +5,22 @@ import movies from "../../data/movies.json";
 export default function MovieGrid() {
   return (
     <Box
-      component="ul"
       sx={{
         backgroundColor: "#000000",
-        display: "flex",
+        display: "grid",
         gap: 2,
-        flexWrap: "wrap",
-        p: 0,
-        m: 0,
+        gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
+        p: 2,
       }}
     >
       {movies.map((movie, index) => (
-        <Card
-          key={index}
-          component="li"
-          sx={{ minWidth: 300, flexGrow: 1, margin: "1rem" }}
-        >
+        <Card key={index} sx={{ display: "flex", flexDirection: "column" }}>
           <CardMedia
             component="img"
             src={movie.thumbnail}
             alt={movie.title}
             loading="lazy"
-            style={{ width: "100%", height: 300, objectFit: "cover" }}
+            sx={{ height: 300, objectFit: "cover" }}
           />
         </Card>
       ))}
