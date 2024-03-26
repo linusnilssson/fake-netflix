@@ -14,6 +14,7 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
+import Link from "next/link";
 import { useRef, useState } from "react";
 import movies from "../../data/movies.json";
 
@@ -58,7 +59,11 @@ export default function MovieGrid() {
     setHovered(null);
   };
 
-  const handleIconClick = (index: number) => {
+  const handleIconClick = (
+    index: number,
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    e.stopPropagation(); // Förhindra klick på ikon att bubbla upp till förälderkomponenten
     setIconState((prevStates) => {
       const newStates = [...prevStates];
       newStates[index] = !newStates[index];
@@ -84,57 +89,59 @@ export default function MovieGrid() {
         }}
       >
         {movies.map((movie, index) => (
-          <Card
-            key={index}
-            onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={handleMouseLeave}
-            sx={{ minWidth: 200, position: "relative" }}
-          >
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                src={movie.thumbnail}
-                alt={movie.title}
-                loading="lazy"
-                sx={{ height: 300, objectFit: "cover" }}
-              />
-              {hovered === index && (
-                <Box
-                  sx={{
-                    position: "absolute",
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    display: "flex",
-                    justifyContent: "space-between",
-                    padding: "8px",
-                    background:
-                      "linear-gradient(transparent, rgba(0, 0, 0, 0.7))",
-                    transition: "opacity 0.3s",
-                  }}
-                >
-                  <IconButton
-                    color="primary"
-                    onClick={() => {
-                      // Handle play button click
+          <Link key={index} href={`/movie/${movie.slug}`} passHref>
+            <Card
+              key={index}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
+              sx={{ minWidth: 200, position: "relative" }}
+            >
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  src={movie.thumbnail}
+                  alt={movie.title}
+                  loading="lazy"
+                  sx={{ height: 300, objectFit: "cover" }}
+                />
+                {hovered === index && (
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      display: "flex",
+                      justifyContent: "space-between",
+                      padding: "8px",
+                      background:
+                        "linear-gradient(transparent, rgba(0, 0, 0, 0.7))",
+                      transition: "opacity 0.3s",
                     }}
                   >
-                    <PlayArrow sx={{ color: "white" }} />
-                  </IconButton>
-                  <IconButton
-                    color="primary"
-                    onClick={() => handleIconClick(index)}
-                  >
-                    {iconState[index] ? (
-                      <CheckRounded sx={{ color: "white" }} />
-                    ) : (
-                      <AddRounded sx={{ color: "white" }} />
-                    )}
-                  </IconButton>
-                </Box>
-              )}
-            </CardActionArea>
-          </Card>
+                    <IconButton
+                      color="primary"
+                      onClick={() => {
+                        // Handle play button click
+                      }}
+                    >
+                      <PlayArrow sx={{ color: "white" }} />
+                    </IconButton>
+                    <IconButton
+                      color="primary"
+                      onClick={(e) => handleIconClick(index, e)}
+                    >
+                      {iconState[index] ? (
+                        <CheckRounded sx={{ color: "white" }} />
+                      ) : (
+                        <AddRounded sx={{ color: "white" }} />
+                      )}
+                    </IconButton>
+                  </Box>
+                )}
+              </CardActionArea>
+            </Card>
+          </Link>
         ))}
       </Box>
       <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
