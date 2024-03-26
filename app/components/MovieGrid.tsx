@@ -1,6 +1,7 @@
 "use client";
 import { ArrowBack, ArrowForward } from "@mui/icons-material";
 import { Box, Card, CardMedia, IconButton, Typography } from "@mui/material";
+import Link from "next/link";
 import { useRef, useState } from "react";
 import movies from "../../data/movies.json";
 
@@ -51,15 +52,17 @@ export default function MovieGrid() {
         }}
       >
         {movies.map((movie, index) => (
-          <Card key={index} sx={{ minWidth: 200 }}>
-            <CardMedia
-              component="img"
-              src={movie.thumbnail}
-              alt={movie.title}
-              loading="lazy"
-              sx={{ height: 300, objectFit: "cover" }}
-            />
-          </Card>
+          <Link key={index} href={`/movie/${movie.slug}`} passHref>
+             <Card key={index} sx={{ minWidth: 200 }}>
+              <CardMedia
+                component="img"
+                src={movie.thumbnail}
+                alt={movie.title}
+                loading="lazy"
+                sx={{ height: 300, objectFit: "cover" }}
+              />
+            </Card>
+          </Link>
         ))}
       </Box>
       <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
@@ -91,6 +94,7 @@ export default function MovieGrid() {
         }}
       >
         {movies.map((movie, index) => (
+          <Link key={index} href={`/movie/${movie.slug}`} passHref>
           <Card key={index} sx={{ minWidth: 200 }}>
             <CardMedia
               component="img"
@@ -100,6 +104,7 @@ export default function MovieGrid() {
               sx={{ height: 300, objectFit: "cover" }}
             />
           </Card>
+          </Link>
         ))}
       </Box>
       <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
@@ -129,6 +134,7 @@ export default function MovieGrid() {
         }}
       >
         {movies.map((movie, index) => (
+          <Link key={index} href={`/movie/${movie.slug}`} passHref>
           <Card key={index} sx={{ display: "flex", flexDirection: "column" }}>
             <CardMedia
               component="img"
@@ -138,6 +144,7 @@ export default function MovieGrid() {
               sx={{ height: 300, objectFit: "cover" }}
             />
           </Card>
+          </Link>
         ))}
       </Box>
     </Box>
