@@ -1,6 +1,6 @@
 import MovieGridComponent from "./components/MovieGrid";
 
-export default function MovieGrid() {
+export default async function Home() {
   return (
     <>
       <MovieGridComponent />
