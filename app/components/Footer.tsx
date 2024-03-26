@@ -1,12 +1,19 @@
-"use client"
-
-
-
+"use client";
+import Toolbar from "@mui/material/Toolbar";
 
 export default function Footer() {
   return (
-    <footer style={{ textAlign: "center", flex: 1 }}>
+    <Toolbar
+      style={{
+        textAlign: "center",
+        flex: 1,
+        height: "15vh",
+        bottom: "0",
+        position: "relative",
+        backgroundColor: "#20263e",
+      }}
+    >
       <p> Netflix © 2024</p>
-    </footer>
+    </Toolbar>
   );
 }
