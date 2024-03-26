@@ -3,6 +3,7 @@ import {
   AddRounded,
   ArrowBack,
   ArrowForward,
+  CheckRounded,
   PlayArrow,
 } from "@mui/icons-material";
 import {
@@ -20,6 +21,9 @@ export default function MovieGrid() {
   const [recommendedScrollX, setRecommendedScrollX] = useState(0);
   const [trendingScrollX, setTrendingScrollX] = useState(0);
   const [hovered, setHovered] = useState<number | null>(null);
+  const [iconState, setIconState] = useState<Array<boolean>>(
+    Array(movies.length).fill(false)
+  );
 
   const recommendedListRef = useRef<HTMLDivElement | null>(null);
   const trendingListRef = useRef<HTMLDivElement | null>(null);
@@ -52,6 +56,14 @@ export default function MovieGrid() {
 
   const handleMouseLeave = () => {
     setHovered(null);
+  };
+
+  const handleIconClick = (index: number) => {
+    setIconState((prevStates) => {
+      const newStates = [...prevStates];
+      newStates[index] = !newStates[index];
+      return newStates;
+    });
   };
 
   return (
@@ -111,11 +123,13 @@ export default function MovieGrid() {
                   </IconButton>
                   <IconButton
                     color="primary"
-                    onClick={() => {
-                      // Handle AddIcon click
-                    }}
+                    onClick={() => handleIconClick(index)}
                   >
-                    <AddRounded sx={{ color: "white", padding: "10px" }} />
+                    {iconState[index] ? (
+                      <CheckRounded sx={{ color: "white" }} />
+                    ) : (
+                      <AddRounded sx={{ color: "white" }} />
+                    )}
                   </IconButton>
                 </Box>
               )}
