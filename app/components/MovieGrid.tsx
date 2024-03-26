@@ -1,4 +1,5 @@
 "use client";
+
 import {
   AddRounded,
   ArrowBack,
@@ -14,6 +15,9 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
+
+
+
 import Link from "next/link";
 import { useRef, useState } from "react";
 import movies from "../../data/movies.json";
@@ -90,6 +94,7 @@ export default function MovieGrid() {
       >
         {movies.map((movie, index) => (
           <Link key={index} href={`/movie/${movie.slug}`} passHref>
+
             <Card
               key={index}
               onMouseEnter={() => handleMouseEnter(index)}
@@ -140,6 +145,7 @@ export default function MovieGrid() {
                   </Box>
                 )}
               </CardActionArea>
+
             </Card>
           </Link>
         ))}
@@ -173,6 +179,7 @@ export default function MovieGrid() {
         }}
       >
         {movies.map((movie, index) => (
+          <Link key={index} href={`/movie/${movie.slug}`} passHref>
           <Card key={index} sx={{ minWidth: 200 }}>
             <CardMedia
               component="img"
@@ -182,6 +189,7 @@ export default function MovieGrid() {
               sx={{ height: 300, objectFit: "cover" }}
             />
           </Card>
+          </Link>
         ))}
       </Box>
       <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
@@ -211,6 +219,7 @@ export default function MovieGrid() {
         }}
       >
         {movies.map((movie, index) => (
+          <Link key={index} href={`/movie/${movie.slug}`} passHref>
           <Card key={index} sx={{ display: "flex", flexDirection: "column" }}>
             <CardMedia
               component="img"
@@ -220,6 +229,7 @@ export default function MovieGrid() {
               sx={{ height: 300, objectFit: "cover" }}
             />
           </Card>
+          </Link>
         ))}
       </Box>
     </Box>
