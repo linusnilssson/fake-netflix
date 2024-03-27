@@ -196,7 +196,7 @@ export default function MovieGrid() {
           },
         }}
       >
-        {randomMovies.map((movie, index) => (
+        {randomMovies.map((movie: any, index: number) => (
           <Link key={index} href={`/movie/${movie.slug}`} passHref>
             <Card
               key={index}
