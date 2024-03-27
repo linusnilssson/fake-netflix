@@ -13,7 +13,7 @@ import {
 import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import movies from "../../data/movies.json";
 
 export default function MovieGrid() {
@@ -23,6 +23,7 @@ export default function MovieGrid() {
   const [iconState, setIconState] = useState<Array<boolean>>(
     Array(movies.length).fill(false)
   );
+  const [randomMovies, setRandomMovies] = useState<any>([]);
 
   const recommendedListRef = useRef<HTMLDivElement | null>(null);
   const trendingListRef = useRef<HTMLDivElement | null>(null);
@@ -69,6 +70,31 @@ export default function MovieGrid() {
     });
   };
 
+  const trendingMovies = movies.filter((movie) => movie.isTrending);
+
+  useEffect(() => {
+    const getRandomMovies = (count: number) => {
+      const randomMovies = [];
+      const usedIndexes = new Set<number>();
+
+      while (
+        randomMovies.length < count &&
+        randomMovies.length < movies.length
+      ) {
+        const randomIndex = Math.floor(Math.random() * movies.length);
+        if (!usedIndexes.has(randomIndex)) {
+          randomMovies.push(movies[randomIndex]);
+          usedIndexes.add(randomIndex);
+        }
+      }
+
+      return randomMovies;
+    };
+
+    const randomMovies = getRandomMovies(10);
+    setRandomMovies(randomMovies);
+  }, []);
+
   return (
     <Box sx={{ backgroundColor: "#000000", p: 2 }}>
       <Typography variant="h3" sx={{ color: "white", mb: 2 }}>
@@ -86,7 +112,7 @@ export default function MovieGrid() {
           },
         }}
       >
-        {movies.map((movie, index) => (
+        {trendingMovies.map((movie, index) => (
           <Link key={index} href={`/movie/${movie.slug}`} passHref>
             <Card
               key={index}
@@ -170,7 +196,7 @@ export default function MovieGrid() {
           },
         }}
       >
-        {movies.map((movie, index) => (
+        {randomMovies.map((movie, index) => (
           <Link key={index} href={`/movie/${movie.slug}`} passHref>
             <Card
               key={index}
