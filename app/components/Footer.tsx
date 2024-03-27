@@ -5,15 +5,29 @@ export default function Footer() {
   return (
     <Toolbar
       style={{
-        textAlign: "center",
-        flex: 1,
+        justifyContent: "space-between",
         height: "15vh",
-        bottom: "0",
         position: "relative",
-        backgroundColor: "#20263e",
+        backgroundColor: "00000",
+        color: "white",
+        display: "flex",
+        alignItems: "center",
       }}
     >
-      <p> Netflix © 2024</p>
+      <p> 1997-2024 © Netflix. Inc</p>
+
+      <ul
+        style={{
+          display: "flex",
+          gap: "2rem",
+        }}
+      >
+        <li style={{ listStyle: "none", cursor: "pointer" }}>Home</li>
+        <li style={{ listStyle: "none", cursor: "pointer" }}>Privacy</li>
+        <li style={{ listStyle: "none", cursor: "pointer" }}>Help Center</li>
+        <li style={{ listStyle: "none", cursor: "pointer" }}>Terms Of Use</li>
+        <li style={{ listStyle: "none", cursor: "pointer" }}>Contact Us</li>
+      </ul>
     </Toolbar>
   );
 }
