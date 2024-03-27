@@ -7,7 +7,8 @@
     "genre": "Drama",
     "synopsis": "Over the course of several years, two convicts form a friendship, seeking consolation and, eventually, redemption through basic compassion.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_QL75_UX380_CR0,4,380,562_.jpg",
-    "slug": "the-shawshank-redemption"
+    "slug": "the-shawshank-redemption",
+    "background": "https://wallpapercave.com/wp/wp2014285.jpg"
   },
   {
     "title": "The Godfather",
@@ -16,8 +17,9 @@
     "actors": ["Marlon Brando", "Al Pacino", "James Caan"],
     "genre": "Crime, Drama",
     "synopsis": "Don Vito Corleone, head of a mafia family, decides to hand over his empire to his youngest son Michael. However, his decision unintentionally puts the lives of his loved ones in grave danger.",
-    "thumbnail": "https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_QL75_UX380_CR0,4,380,562_.jpg",
-    "slug": "the-godfather"
+    "thumbnail": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
+    "slug": "the-godfather",
+    "background": "https://i.redd.it/9fa42dq3k0v71.jpg"
   },
   {
     "title": "The Godfather: Part II",
@@ -26,9 +28,10 @@
     "actors": ["Al Pacino", "Robert De Niro", "Robert Duvall"],
     "genre": "Crime, Drama",
     "synopsis": "The early life and career of Vito Corleone in 1920s New York City is portrayed, while his son, Michael, expands and tightens his grip on the family crime syndicate.",
-    "thumbnail": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_QL75_UX380_CR0,0,380,562_.jpg",
+    "thumbnail": "https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
     "isTrending": true,
-    "slug": "the-godfather-part-ii"
+    "slug": "the-godfather-part-ii",
+    "background": "https://miro.medium.com/v2/resize:fit:3840/0*w-lSrMluOuMYLrMB"
   },
   {
     "title": "The Dark Knight",
@@ -38,7 +41,8 @@
     "genre": "Action, Crime, Drama",
     "synopsis": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
-    "slug": "the-dark-knight"
+    "slug": "the-dark-knight",
+    "background": "https://images7.alphacoders.com/108/1080692.jpg"
   },
   {
     "title": "12 Angry Men",
@@ -48,7 +52,8 @@
     "genre": "Crime, Drama",
     "synopsis": "The jury in a New York City murder trial is frustrated by a single member whose skeptical caution forces them to more carefully consider the evidence before jumping to a hasty verdict.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
-    "slug": "12-angry-men"
+    "slug": "12-angry-men",
+    "background": "https://images6.alphacoders.com/645/thumb-1920-645008.png"
   },
   {
     "title": "Schindler's List",
@@ -58,7 +63,8 @@
     "genre": "Biography, Drama, History",
     "synopsis": "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
-    "slug": "schindlers-list"
+    "slug": "schindlers-list",
+    "background": "https://wallpapercave.com/wp/wp3849098.jpg"
   },
   {
     "title": "The Lord of the Rings: The Return of the King",
@@ -69,7 +75,8 @@
     "synopsis": "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     "isTrending": true,
-    "slug": "the-lord-of-the-rings-the-return-of-the-king"
+    "slug": "the-lord-of-the-rings-the-return-of-the-king",
+    "background": "https://images4.alphacoders.com/118/118904.jpg"
   },
   {
     "title": "Pulp Fiction",
@@ -79,7 +86,8 @@
     "genre": "Crime, Drama",
     "synopsis": "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
-    "slug": "pulp-fiction"
+    "slug": "pulp-fiction",
+    "background": "https://images2.alphacoders.com/674/674137.jpg"
   },
   {
     "title": "The Good, the Bad and the Ugly",
@@ -89,7 +97,8 @@
     "genre": "Western",
     "synopsis": "A bounty hunting scam joins two men in an uneasy alliance against a third in a race to find a fortune in gold buried in a remote cemetery.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BOTQ5NDI3MTI4MF5BMl5BanBnXkFtZTgwNDQ4ODE5MDE@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
-    "slug": "the-good-the-bad-and-the-ugly"
+    "slug": "the-good-the-bad-and-the-ugly",
+    "background": "https://wallpapercave.com/wp/wp2273148.jpg"
   },
   {
     "title": "Fight Club",
@@ -100,7 +109,8 @@
     "synopsis": "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BODQ0OWJiMzktYjNlYi00MzcwLThlZWMtMzRkYTY4ZDgxNzgxXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX960_.jpg",
      "isTrending": true,
-     "slug": "fight-club"
+     "slug": "fight-club",
+     "background": "https://static1.thegamerimages.com/wordpress/wp-content/uploads/2018/05/Fight-Club-Drunk-Fight.jpg"
   },
   {
     "title": "Forrest Gump",
@@ -110,7 +120,8 @@
     "genre": "Drama, Romance",
     "synopsis": "The history of the United States from the 1950s to the '70s unfolds from the perspective of an Alabama man with an IQ of 75, who yearns to be reunited with his childhood sweetheart.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
-    "slug": "forrest-gump"
+    "slug": "forrest-gump",
+    "background": "https://wallpapers.com/images/hd/young-forrest-gump-running-llt6drsclev1wk93.jpg"
   },
   {
     "title": "Inception",
@@ -120,7 +131,8 @@
     "genre": "Action, Adventure, Sci-Fi",
     "synopsis": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
-    "slug": "inception"
+    "slug": "inception",
+    "background": "https://images3.alphacoders.com/876/87675.jpg"
   },
   {
     "title": "The Lord of the Rings: The Fellowship of the Ring",
@@ -130,7 +142,8 @@
     "genre": "Action, Adventure, Drama",
     "synopsis": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
-    "slug": "the-lord-of-the-rings-the-fellowship-of-the-ring"
+    "slug": "the-lord-of-the-rings-the-fellowship-of-the-ring",
+    "background": "https://wallpapers.com/images/hd/lotr-1920-x-1080-background-16sjupnp2erhapz9.jpg"
   },
   {
     "title": "Star Wars: Episode V - The Empire Strikes Back",
@@ -141,7 +154,8 @@
     "synopsis": "After the Rebels are overpowered by the Empire, Luke Skywalker begins his Jedi training with Yoda, while his friends are pursued across the galaxy by Darth Vader and bounty hunter Boba Fett.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
     "isTrending": true,
-    "slug": "star-wars-episode-v-the-empire-strikes-back"
+    "slug": "star-wars-episode-v-the-empire-strikes-back",
+    "background": "https://images.alphacoders.com/584/584825.jpg"
   },
   {
     "title": "The Matrix",
@@ -151,7 +165,8 @@
     "genre": "Action, Sci-Fi",
     "synopsis": "When a beautiful stranger leads computer hacker Neo to a forbidding underworld, he discovers the shocking truth--the life he knows is the elaborate deception of an evil cyber-intelligence.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
-    "slug": "the-matrix"
+    "slug": "the-matrix",
+    "background": "https://cdn.theasc.com/The-Matrix-Resurrections-Feature.jpeg"
   },
   {
     "title": "Goodfellas",
@@ -161,7 +176,8 @@
     "genre": "Biography, Crime, Drama",
     "synopsis": "The story of Henry Hill and his life in the mafia, covering his relationship with his wife Karen and his mob partners Jimmy Conway and Tommy DeVito.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
-    "slug": "goodfellas"
+    "slug": "goodfellas",
+    "background": "https://images3.alphacoders.com/648/648989.png"
   },
   {
     "title": "One Flew Over the Cuckoo's Nest",
@@ -171,7 +187,8 @@
     "genre": "Drama",
     "synopsis": "In the Fall of 1963, a Korean War veteran and criminal pleads insanity and is admitted to a mental institution, where he rallies up the scared patients against the tyrannical nurse.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BZjA0OWVhOTAtYWQxNi00YzNhLWI4ZjYtNjFjZTEyYjJlNDVlL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
-    "slug": "one-flew-over-the-cuckoos-nest"
+    "slug": "one-flew-over-the-cuckoos-nest",
+    "background": "https://m.media-amazon.com/images/M/MV5BMjEwMTUwMTYzNV5BMl5BanBnXkFtZTcwNTY5NDk3Mw@@._V1_.jpg"
   },
   {
     "title": "Seven Samurai",
@@ -181,7 +198,8 @@
     "genre": "Action, Adventure, Drama",
     "synopsis": "Farmers from a village exploited by bandits hire a veteran samurai for protection, who gathers six other samurai to join him.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BMTAzY2Q4OGUtMzg4Ni00YTBlLThkMDgtMTVlMjY0ZGRlMzdjXkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_FMjpg_UX1000_.jpg",
-    "slug": "seven-samurai"
+    "slug": "seven-samurai",
+    "background": "https://i.redd.it/sbplz8gpq6i71.jpg"
   },
   {
     "title": "The Silence of the Lambs",
@@ -191,7 +209,8 @@
     "genre": "Crime, Drama, Thriller",
     "synopsis": "A young F.B.I. cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer, a madman who skins his victims.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
-    "slug": "the-silence-of-the-lambs"
+    "slug": "the-silence-of-the-lambs",
+    "background": "https://images5.alphacoders.com/507/507453.jpg"
   },
   {
     "title": "Casablanca",
@@ -202,7 +221,8 @@
     "synopsis": "A cynical expatriate American cafe owner struggles to decide whether or not to help his former lover and her fugitive husband escape the Nazis in French Morocco.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BY2IzZGY2YmEtYzljNS00NTM5LTgwMzUtMzM1NjQ4NGI0OTk0XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_QL75_UX380_CR0,5,380,562_.jpg",
     "isTrending": true,
-    "slug": "casablanca"
+    "slug": "casablanca",
+    "background": "https://wallpapers.com/images/hd/casablanca-movie-characters-0qa4748irs8a58ae.jpg"
   },
   {
     "title": "The Lord of the Rings: The Two Towers",
@@ -212,7 +232,8 @@
     "genre": "Action, Adventure, Drama",
     "synopsis": "While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BZGMxZTdjZmYtMmE2Ni00ZTdkLWI5NTgtNjlmMjBiNzU2MmI5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX380_CR0,14,380,562_.jpg",
-    "slug": "the-lord-of-the-rings-the-two-towers"
+    "slug": "the-lord-of-the-rings-the-two-towers",
+    "background": "https://images.alphacoders.com/151/151033.jpg"
   },
   {
     "title": "Indiana Jones and the Raiders of the Lost Ark",
@@ -222,7 +243,8 @@
     "genre": "Action, Adventure",
     "synopsis": "In 1936, archaeologist and adventurer Indiana Jones is hired by the U.S. government to find the Ark of the Covenant before the Nazis can obtain its awesome powers.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BNTU2ODkyY2MtMjU1NC00NjE1LWEzYjgtMWQ3MzRhMTE0NDc0XkEyXkFqcGdeQXVyMjM4MzQ4OTQ@._V1_QL75_UY562_CR1,0,380,562_.jpg",
-    "slug": "indiana-jones-and-the-raiders-of-the-lost-ark"
+    "slug": "indiana-jones-and-the-raiders-of-the-lost-ark",
+    "background": "https://www.syfy.com/sites/syfy/files/2021/06/gettyimages-1195887234.jpg"
   },
   {
     "title": "City of God",
@@ -236,7 +258,8 @@
     "genre": "Crime, Drama",
     "synopsis": "In the slums of Rio, two kids' paths diverge as one struggles to become a photographer and the other a kingpin.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BMGU5OWEwZDItNmNkMC00NzZmLTk1YTctNzVhZTJjM2NlZTVmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SY1000_CR0,0,675,1000_AL_.jpg",
-    "slug": "city-of-god"
+    "slug": "city-of-god",
+    "background": "https://assets.mubicdn.net/images/film/160/image-w1280.jpg?1571397897"
   },
   {
     "title": "Once Upon a Time in the West",
@@ -246,7 +269,8 @@
     "genre": "Western",
     "synopsis": "A mysterious stranger with a harmonica joins forces with a notorious desperado to protect a beautiful widow from a ruthless assassin working for the railroad.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BODQ3NDExOGYtMzI3Mi00NWRlLTkwNjAtNjc4MDgzZGJiZTA1XkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_QL75_UX380_CR0,3,380,562_.jpg",
-    "slug": "once-upon-a-time-in-the-west"
+    "slug": "once-upon-a-time-in-the-west",
+    "background": "https://lwlies.com/wp-content/uploads/2018/03/once_upon_a_time.jpg"
   },
   {
     "title": "The Departed",
@@ -256,7 +280,8 @@
     "genre": "Crime, Drama, Thriller",
     "synopsis": "An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in South Boston.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BMTI1MTY2OTIxNV5BMl5BanBnXkFtZTYwNjQ4NjY3._V1_QL75_UY562_CR0,0,380,562_.jpg",
-    "slug": "the-departed"
+    "slug": "the-departed",
+    "background": "https://wallpapercave.com/wp/wp2329836.jpg"
   },
   {
     "title": "Rear Window",
@@ -266,7 +291,8 @@
     "genre": "Mystery, Thriller",
     "synopsis": "A photographer in a wheelchair spies on his neighbors from his Greenwich Village courtyard apartment window, and becomes convinced one of them has committed murder, despite the skepticism of his fashion-model girlfriend.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BNGUxYWM3M2MtMGM3Mi00ZmRiLWE0NGQtZjE5ODI2OTJhNTU0XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_QL75_UY562_CR2,0,380,562_.jpg",
-    "slug": "rear-window"
+    "slug": "rear-window",
+    "background": "https://atlasofplaces.com/atlas-of-places-images/_scaled/ATLAS-OF-PLACES-ALFRED-HITCHCOCK-REAR-WINDOW-IMG-1.jpg"
   },
   {
     "title": "Gladiator",
@@ -276,7 +302,8 @@
     "genre": "Action, Adventure, Drama",
     "synopsis": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX380_CR0,0,380,562_.jpg",
-    "slug": "gladiator"
+    "slug": "gladiator",
+    "background": "https://scarfandgoggles.files.wordpress.com/2017/04/gladiator-movie-russell-crowe-full-top-hd-wallpapers-free.jpg"
   },
   {
     "title": "Terminator 2: Judgment Day",
@@ -287,7 +314,8 @@
     "synopsis": "A cyborg, identical to the one who failed to kill Sarah Connor, must now protect her ten year old son John from an even more advanced and powerful cyborg.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BMGU2NzRmZjUtOGUxYS00ZjdjLWEwZWItY2NlM2JhNjkxNTFmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_QL75_UX380_CR0,1,380,562_.jpg",
      "isTrending": true,
-    "slug": "terminator-2-judgment-day"
+    "slug": "terminator-2-judgment-day",
+    "background": "https://wallpapers.com/images/hd/arnold-schwarzenegger-background-fhdrrss0a3ygrndo.jpg"
   },
   {
     "title": "Whiplash",
@@ -297,7 +325,8 @@
     "genre": "Drama, Music",
     "synopsis": "A promising young drummer enrolls at a cut-throat music conservatory where his dreams of greatness are mentored by an instructor who will stop at nothing to realize a student's potential.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BOTA5NDZlZGUtMjAxOS00YTRkLTkwYmMtYWQ0NWEwZDZiNjEzXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_QL75_UX380_CR0,0,380,562_.jpg",
-    "slug": "whiplash"
+    "slug": "whiplash",
+    "background": "https://images3.alphacoders.com/676/676238.jpg"
   },
   {
     "title": "Psycho",
@@ -308,6 +337,7 @@
     "synopsis": "A Phoenix secretary embezzles $40,000 from her employer's client, goes on the run and checks into a remote motel run by a young man under the domination of his mother.",
     "thumbnail": "https://m.media-amazon.com/images/M/MV5BNTQwNDM1YzItNDAxZC00NWY2LTk0M2UtNDIwNWI5OGUyNWUxXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_QL75_UX380_CR0,1,380,562_.jpg",
     "isTrending": true,
-    "slug": "psycho"  
+    "slug": "psycho",
+    "background": "https://wallpapercave.com/wp/wp4114504.png"
   }
 ]
