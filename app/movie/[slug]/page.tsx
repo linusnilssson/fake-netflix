@@ -1,20 +1,19 @@
 "use client";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, Button, IconButton } from "@mui/material";
 import Box from "@mui/material/Box";
 import movies from "../../../data/movies.json";
+import AddIcon from "@mui/icons-material/Add";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 
 type PageProps = { params: { slug: string } };
 
 export default function MoviePage({ params }: PageProps) {
   const { slug: urlslug } = params;
 
-  // Decode the slug from the URL
   const slug = decodeURIComponent(urlslug);
 
-  // Use `slug` to get data about the movie
   const movie = movies.find((movie) => movie.slug.toString() === slug);
 
-  // Check if the movie exists
   if (!movie) {
     return <div>Filmen hittades inte</div>;
   }
@@ -22,35 +21,38 @@ export default function MoviePage({ params }: PageProps) {
   return (
     <Box
       sx={{
-        backgroundImage:
-          "linear-gradient(to right, #777777, #555555, #232323, #000000)",
-        p: 6,
+        backgroundImage: `url(${movie.background}), linear-gradient(to bottom, #252525, #555555, #555555, #252525)`,
+        backgroundBlendMode: "overlay",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
       }}
     >
-      <Grid container spacing={4}>
-        <Grid item xs={12} md={7}>
-          <Box
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            height="100%"
-            
-          >
-            <img
-              src={movie.thumbnail}
-              alt={movie.title}
-              style={{
-                width: 520,
-                height: 700,
+      <Grid
+        container
+        spacing={2}
+        display="flex"
+        justifyContent="center"
+        paddingTop="12rem"
+      >
+        <Grid item xs={10} sm={10} md={7}>
+          <Box>
+            <Typography
+              variant="h3"
+              sx={{
+                color: "white",
+                fontWeight: "600",
+                fontSize: {
+                  xs: "2.5rem",
+                  sm: "2.5rem", 
+                  md: "3rem", 
+                },
               }}
-            />
-          </Box>
-        </Grid>
-        <Grid item xs={12} md={5}>
-          <Box display="flex" flexDirection="column" justifyContent="center">
-            <Typography variant="h3" sx={{ color: "white", fontWeight: "600" }}>
+            >
               {movie.title}
             </Typography>
+
             <Typography
               variant="h6"
               sx={{ color: "white", fontStyle: "italic" }}
@@ -60,10 +62,41 @@ export default function MoviePage({ params }: PageProps) {
           </Box>
           <Box
             display="flex"
-            flexDirection="column"
-            justifyContent="center"
-            marginTop={12}
+            flexDirection="row"
+            justifyContent="start"
+            alignItems="center"
+            height="100%"
+            sx={{ color: "white" }}
           >
+            <Button
+              variant="contained"
+              sx={{
+                backgroundColor: "lightgray",
+                color: "black",
+                "&:hover": {
+                  backgroundColor: "lightslategray",
+                },
+              }}
+              startIcon={<PlayArrowIcon />}
+            >
+              Play
+            </Button>
+            <Button
+              variant="contained"
+              startIcon={<AddIcon />}
+              sx={{
+                backgroundColor: "lightgray",
+                color: "black",
+                ml: 2,
+                "&:hover": {
+                  backgroundColor: "lightslategray",
+                },
+              }}
+            >
+              My List
+            </Button>
+          </Box>
+          <Box>
             <Typography
               variant="body2"
               sx={{ color: "white", fontSize: "1rem" }}
