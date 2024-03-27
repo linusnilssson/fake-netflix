@@ -5,15 +5,13 @@ export default function Footer() {
   return (
     <Toolbar
       style={{
-        textAlign: "center",
-        flex: 1,
+        justifyContent: "center",
         height: "15vh",
-        bottom: "0",
         position: "relative",
         backgroundColor: "#20263e",
       }}
     >
-      <p> Netflix © 2024</p>
+      <p> Netflix. Inc © 2024</p>
     </Toolbar>
   );
 }
