@@ -16,8 +16,6 @@ import {
   Typography,
 } from "@mui/material";
 
-
-
 import Link from "next/link";
 import { useRef, useState } from "react";
 import movies from "../../data/movies.json";
@@ -94,7 +92,6 @@ export default function MovieGrid() {
       >
         {movies.map((movie, index) => (
           <Link key={index} href={`/movie/${movie.slug}`} passHref>
-
             <Card
               key={index}
               onMouseEnter={() => handleMouseEnter(index)}
@@ -145,7 +142,6 @@ export default function MovieGrid() {
                   </Box>
                 )}
               </CardActionArea>
-
             </Card>
           </Link>
         ))}
@@ -156,10 +152,10 @@ export default function MovieGrid() {
           disabled={trendingScrollX === 0}
           onClick={() => handleTrendingScroll(-200)}
         >
-          <ArrowBack />
+          <ArrowBack sx={{ color: "white" }} />
         </IconButton>
         <IconButton color="primary" onClick={() => handleTrendingScroll(200)}>
-          <ArrowForward />
+          <ArrowForward sx={{ color: "white" }} />
         </IconButton>
       </Box>
 
@@ -180,15 +176,57 @@ export default function MovieGrid() {
       >
         {movies.map((movie, index) => (
           <Link key={index} href={`/movie/${movie.slug}`} passHref>
-          <Card key={index} sx={{ minWidth: 200 }}>
-            <CardMedia
-              component="img"
-              src={movie.thumbnail}
-              alt={movie.title}
-              loading="lazy"
-              sx={{ height: 300, objectFit: "cover" }}
-            />
-          </Card>
+            <Card
+              key={index}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
+              sx={{ minWidth: 200, position: "relative" }}
+            >
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  src={movie.thumbnail}
+                  alt={movie.title}
+                  loading="lazy"
+                  sx={{ height: 300, objectFit: "cover" }}
+                />
+                {hovered === index && (
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      display: "flex",
+                      justifyContent: "space-between",
+                      padding: "8px",
+                      background:
+                        "linear-gradient(transparent, rgba(0, 0, 0, 0.7))",
+                      transition: "opacity 0.3s",
+                    }}
+                  >
+                    <IconButton
+                      color="primary"
+                      onClick={() => {
+                        // Handle play button click
+                      }}
+                    >
+                      <PlayArrow sx={{ color: "white" }} />
+                    </IconButton>
+                    <IconButton
+                      color="primary"
+                      onClick={(e) => handleIconClick(index, e)}
+                    >
+                      {iconState[index] ? (
+                        <CheckRounded sx={{ color: "white" }} />
+                      ) : (
+                        <AddRounded sx={{ color: "white" }} />
+                      )}
+                    </IconButton>
+                  </Box>
+                )}
+              </CardActionArea>
+            </Card>
           </Link>
         ))}
       </Box>
@@ -198,13 +236,13 @@ export default function MovieGrid() {
           disabled={recommendedScrollX === 0}
           onClick={() => handleRecommendedScroll(-200)}
         >
-          <ArrowBack />
+          <ArrowBack sx={{ color: "white" }} />
         </IconButton>
         <IconButton
           color="primary"
           onClick={() => handleRecommendedScroll(200)}
         >
-          <ArrowForward />
+          <ArrowForward sx={{ color: "white" }} />
         </IconButton>
       </Box>
 
@@ -220,15 +258,57 @@ export default function MovieGrid() {
       >
         {movies.map((movie, index) => (
           <Link key={index} href={`/movie/${movie.slug}`} passHref>
-          <Card key={index} sx={{ display: "flex", flexDirection: "column" }}>
-            <CardMedia
-              component="img"
-              src={movie.thumbnail}
-              alt={movie.title}
-              loading="lazy"
-              sx={{ height: 300, objectFit: "cover" }}
-            />
-          </Card>
+            <Card
+              key={index}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
+              sx={{ minWidth: 200, position: "relative" }}
+            >
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  src={movie.thumbnail}
+                  alt={movie.title}
+                  loading="lazy"
+                  sx={{ height: 300, objectFit: "cover" }}
+                />
+                {hovered === index && (
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      bottom: 0,
+                      left: 0,
+                      right: 0,
+                      display: "flex",
+                      justifyContent: "space-between",
+                      padding: "8px",
+                      background:
+                        "linear-gradient(transparent, rgba(0, 0, 0, 0.7))",
+                      transition: "opacity 0.3s",
+                    }}
+                  >
+                    <IconButton
+                      color="primary"
+                      onClick={() => {
+                        // Handle play button click
+                      }}
+                    >
+                      <PlayArrow sx={{ color: "white" }} />
+                    </IconButton>
+                    <IconButton
+                      color="primary"
+                      onClick={(e) => handleIconClick(index, e)}
+                    >
+                      {iconState[index] ? (
+                        <CheckRounded sx={{ color: "white" }} />
+                      ) : (
+                        <AddRounded sx={{ color: "white" }} />
+                      )}
+                    </IconButton>
+                  </Box>
+                )}
+              </CardActionArea>
+            </Card>
           </Link>
         ))}
       </Box>
