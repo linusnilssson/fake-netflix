@@ -103,7 +103,9 @@ export default function MovieGrid() {
       <Box
         ref={trendingListRef}
         sx={{
+          position: "relative",
           display: "flex",
+          alignItems: "center",
           overflowX: "auto",
           gap: 2,
           scrollbarWidth: "none",
@@ -112,6 +114,7 @@ export default function MovieGrid() {
           },
         }}
       >
+        {/* Trending movies */}
         {trendingMovies.map((movie, index) => (
           <Link key={index} href={`/movie/${movie.slug}`} passHref>
             <Card
@@ -167,16 +170,41 @@ export default function MovieGrid() {
             </Card>
           </Link>
         ))}
-      </Box>
-      <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
+        {/* Left arrow for trending movies */}
         <IconButton
           color="primary"
           disabled={trendingScrollX === 0}
           onClick={() => handleTrendingScroll(-200)}
+          sx={{
+            position: "absolute",
+            left: 0,
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 1,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            "&:hover": {
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+            },
+          }}
         >
           <ArrowBackIosRoundedIcon sx={{ color: "white" }} />
         </IconButton>
-        <IconButton color="primary" onClick={() => handleTrendingScroll(200)}>
+        {/* Right arrow for trending movies */}
+        <IconButton
+          color="primary"
+          onClick={() => handleTrendingScroll(200)}
+          sx={{
+            position: "absolute",
+            right: 0,
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 1,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            "&:hover": {
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+            },
+          }}
+        >
           <ArrowForwardIosRoundedIcon sx={{ color: "white" }} />
         </IconButton>
       </Box>
