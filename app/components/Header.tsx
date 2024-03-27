@@ -15,7 +15,9 @@ import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { alpha, styled } from "@mui/material/styles";
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 import * as React from "react";
+import Link from '@mui/material/Link';
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -61,6 +63,7 @@ export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
+  const [isSecondMobileMenuOpen, setSecondMobileMenuOpen] = React.useState(false);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -80,6 +83,13 @@ export default function PrimarySearchAppBar() {
 
   const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setMobileMoreAnchorEl(event.currentTarget);
+  };
+  const handleSecondMobileMenuClose = () => {
+    setSecondMobileMenuOpen(false);
+  };
+
+  const handleSecondMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setSecondMobileMenuOpen(true);
   };
 
   const menuId = "primary-search-account-menu";
@@ -122,7 +132,11 @@ export default function PrimarySearchAppBar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+        <IconButton
+          size="large"
+          aria-label="show 4 new mails"
+          color="inherit"
+        >
           <Badge badgeContent={4} color="error">
             <MailIcon />
           </Badge>
@@ -155,27 +169,51 @@ export default function PrimarySearchAppBar() {
       </MenuItem>
     </Menu>
   );
-
+  const secondMobileMenuId = 'secondary-search-account-menu-mobile';
+  const renderSecondMobileMenu = (
+    <Menu
+      anchorEl={mobileMoreAnchorEl}
+      anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
+      id={secondMobileMenuId}
+      keepMounted
+      transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+      open={isSecondMobileMenuOpen}
+      onClose={handleSecondMobileMenuClose}
+    >
+      <MenuItem onClick={handleSecondMobileMenuClose}>Home</MenuItem>
+      <MenuItem onClick={handleSecondMobileMenuClose}>Series</MenuItem>
+      <MenuItem onClick={handleSecondMobileMenuClose}>New</MenuItem>
+      <MenuItem onClick={handleSecondMobileMenuClose}>Popular</MenuItem>
+      <MenuItem onClick={handleSecondMobileMenuClose}>Bookmark</MenuItem>
+    </Menu>
+  );
+  
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" style={{ backgroundColor: 'black' }}>
         <Toolbar>
           <IconButton
             size="large"
-            edge="start"
+            aria-label="show more"
+            aria-controls={secondMobileMenuId}
+            aria-haspopup="true"
+            onClick={handleSecondMobileMenuOpen}
             color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
           >
+            {/* Hamburger */}
             <MenuIcon />
           </IconButton>
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
+            sx={{
+              display: { xs: "none", sm: "block" },
+              color: 'red', // This is the color of the text XDANI
+              fontSize: '2rem', // This is the size of the text X DANI
+            }}
           >
-            MUI
+            X-DANI
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -193,7 +231,43 @@ export default function PrimarySearchAppBar() {
               aria-label="show 4 new mails"
               color="inherit"
             >
-              <Badge badgeContent={4} color="error">
+              <MenuItem>
+                <Link href="/" underline="hover"sx={{'&:hover': { 
+              textDecoration: 'underline',textDecorationColor: 'red',},}}>
+                  <Typography style={{ color: 'white', textDecoration: 'none'}}>
+                    Home </Typography>
+              </Link>
+            </MenuItem>
+            <MenuItem>
+            <Link href="/series"  underline="hover"sx={{'&:hover': { 
+              textDecoration: 'underline',textDecorationColor: 'red',},}}>
+                <Typography style={{ color: 'white', textDecoration: 'none' }}>
+                  Series </Typography>
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link href="/new" underline="hover"sx={{'&:hover': { 
+              textDecoration: 'underline',textDecorationColor: 'red',},}}>
+                <Typography style={{ color: 'white', textDecoration: 'none' }}>
+                  New</Typography>
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link href="/popular" underline="hover"sx={{'&:hover': { 
+              textDecoration: 'underline',textDecorationColor: 'red',},}}>
+                <Typography style={{ color: 'white', textDecoration: 'none' }}>
+                  Popular</Typography>
+              </Link>
+            </MenuItem>
+            <MenuItem>
+            <Link href="/bookmark" underline="hover" sx={{'&:hover': { 
+              textDecoration: 'underline',textDecorationColor: 'red',},}}>
+            <Typography style={{ color: 'white', textDecoration: 'none' }}>
+              Bookmark
+            </Typography>
+            </Link>
+            </MenuItem>
+              <Badge badgeContent={90} color="error">
                 <MailIcon />
               </Badge>
             </IconButton>
@@ -202,7 +276,7 @@ export default function PrimarySearchAppBar() {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={17} color="error">
+              <Badge badgeContent={21} color="error">
                 <NotificationsIcon />
               </Badge>
             </IconButton>
@@ -215,7 +289,7 @@ export default function PrimarySearchAppBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+              <AccountCircle /> 
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
@@ -227,6 +301,7 @@ export default function PrimarySearchAppBar() {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
+              {/* denna är de tre prickarna */}
               <MoreIcon />
             </IconButton>
           </Box>
@@ -234,6 +309,8 @@ export default function PrimarySearchAppBar() {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
+      {renderMenu}
+    {renderSecondMobileMenu}
     </Box>
   );
 }
