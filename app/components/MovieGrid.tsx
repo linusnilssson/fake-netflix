@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  AddRounded,
-  ArrowBack,
-  ArrowForward,
-  CheckRounded,
-  PlayArrow,
-} from "@mui/icons-material";
+import { AddRounded, CheckRounded, PlayArrow } from "@mui/icons-material";
 import {
   Box,
   Card,
@@ -16,6 +10,8 @@ import {
   Typography,
 } from "@mui/material";
 
+import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
+import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import movies from "../../data/movies.json";
@@ -33,7 +29,7 @@ export default function MovieGrid() {
 
   const handleRecommendedScroll = (scrollOffset: number) => {
     if (recommendedListRef.current) {
-      const newScrollX = recommendedScrollX + scrollOffset;
+      const newScrollX = recommendedScrollX + scrollOffset * 4;
       recommendedListRef.current.scrollTo({
         left: newScrollX,
         behavior: "smooth",
@@ -44,7 +40,7 @@ export default function MovieGrid() {
 
   const handleTrendingScroll = (scrollOffset: number) => {
     if (trendingListRef.current) {
-      const newScrollX = trendingScrollX + scrollOffset;
+      const newScrollX = trendingScrollX + scrollOffset * 4;
       trendingListRef.current.scrollTo({
         left: newScrollX,
         behavior: "smooth",
@@ -152,10 +148,10 @@ export default function MovieGrid() {
           disabled={trendingScrollX === 0}
           onClick={() => handleTrendingScroll(-200)}
         >
-          <ArrowBack sx={{ color: "white" }} />
+          <ArrowBackIosRoundedIcon sx={{ color: "white" }} />
         </IconButton>
         <IconButton color="primary" onClick={() => handleTrendingScroll(200)}>
-          <ArrowForward sx={{ color: "white" }} />
+          <ArrowForwardIosRoundedIcon sx={{ color: "white" }} />
         </IconButton>
       </Box>
 
@@ -236,13 +232,13 @@ export default function MovieGrid() {
           disabled={recommendedScrollX === 0}
           onClick={() => handleRecommendedScroll(-200)}
         >
-          <ArrowBack sx={{ color: "white" }} />
+          <ArrowBackIosRoundedIcon sx={{ color: "white" }} />
         </IconButton>
         <IconButton
           color="primary"
           onClick={() => handleRecommendedScroll(200)}
         >
-          <ArrowForward sx={{ color: "white" }} />
+          <ArrowForwardIosRoundedIcon sx={{ color: "white" }} />
         </IconButton>
       </Box>
 
