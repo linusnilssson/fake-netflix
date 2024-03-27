@@ -8,7 +8,8 @@ export default function Footer() {
         justifyContent: "center",
         height: "15vh",
         position: "relative",
-        backgroundColor: "#20263e",
+        backgroundColor: "#20262E",
+        color: "white",
       }}
     >
       <p> Netflix. Inc © 2024</p>
