@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  AddRounded,
-  ArrowBack,
-  ArrowForward,
-  CheckRounded,
-  PlayArrow,
-} from "@mui/icons-material";
+import { AddRounded, CheckRounded, PlayArrow } from "@mui/icons-material";
 import {
   Box,
   Card,
@@ -16,8 +10,10 @@ import {
   Typography,
 } from "@mui/material";
 
+import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
+import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import movies from "../../data/movies.json";
 
 export default function MovieGrid() {
@@ -27,13 +23,14 @@ export default function MovieGrid() {
   const [iconState, setIconState] = useState<Array<boolean>>(
     Array(movies.length).fill(false)
   );
+  const [randomMovies, setRandomMovies] = useState<any>([]);
 
   const recommendedListRef = useRef<HTMLDivElement | null>(null);
   const trendingListRef = useRef<HTMLDivElement | null>(null);
 
   const handleRecommendedScroll = (scrollOffset: number) => {
     if (recommendedListRef.current) {
-      const newScrollX = recommendedScrollX + scrollOffset;
+      const newScrollX = recommendedScrollX + scrollOffset * 4;
       recommendedListRef.current.scrollTo({
         left: newScrollX,
         behavior: "smooth",
@@ -44,7 +41,7 @@ export default function MovieGrid() {
 
   const handleTrendingScroll = (scrollOffset: number) => {
     if (trendingListRef.current) {
-      const newScrollX = trendingScrollX + scrollOffset;
+      const newScrollX = trendingScrollX + scrollOffset * 4;
       trendingListRef.current.scrollTo({
         left: newScrollX,
         behavior: "smooth",
@@ -73,6 +70,31 @@ export default function MovieGrid() {
     });
   };
 
+  const trendingMovies = movies.filter((movie) => movie.isTrending);
+
+  useEffect(() => {
+    const getRandomMovies = (count: number) => {
+      const randomMovies = [];
+      const usedIndexes = new Set<number>();
+
+      while (
+        randomMovies.length < count &&
+        randomMovies.length < movies.length
+      ) {
+        const randomIndex = Math.floor(Math.random() * movies.length);
+        if (!usedIndexes.has(randomIndex)) {
+          randomMovies.push(movies[randomIndex]);
+          usedIndexes.add(randomIndex);
+        }
+      }
+
+      return randomMovies;
+    };
+
+    const randomMovies = getRandomMovies(10);
+    setRandomMovies(randomMovies);
+  }, []);
+
   return (
     <Box sx={{ backgroundColor: "#000000", p: 2 }}>
       <Typography variant="h3" sx={{ color: "white", mb: 2 }}>
@@ -81,7 +103,9 @@ export default function MovieGrid() {
       <Box
         ref={trendingListRef}
         sx={{
+          position: "relative",
           display: "flex",
+          alignItems: "center",
           overflowX: "auto",
           gap: 2,
           scrollbarWidth: "none",
@@ -90,7 +114,8 @@ export default function MovieGrid() {
           },
         }}
       >
-        {movies.map((movie, index) => (
+        {/* Trending movies */}
+        {trendingMovies.map((movie, index) => (
           <Link key={index} href={`/movie/${movie.slug}`} passHref>
             <Card
               key={index}
@@ -145,17 +170,42 @@ export default function MovieGrid() {
             </Card>
           </Link>
         ))}
-      </Box>
-      <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
+        {/* Left arrow for trending movies */}
         <IconButton
           color="primary"
           disabled={trendingScrollX === 0}
           onClick={() => handleTrendingScroll(-200)}
+          sx={{
+            position: "absolute",
+            left: 0,
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 1,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            "&:hover": {
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+            },
+          }}
         >
-          <ArrowBack sx={{ color: "white" }} />
+          <ArrowBackIosRoundedIcon sx={{ color: "white" }} />
         </IconButton>
-        <IconButton color="primary" onClick={() => handleTrendingScroll(200)}>
-          <ArrowForward sx={{ color: "white" }} />
+        {/* Right arrow for trending movies */}
+        <IconButton
+          color="primary"
+          onClick={() => handleTrendingScroll(200)}
+          sx={{
+            position: "absolute",
+            right: 0,
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 1,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            "&:hover": {
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+            },
+          }}
+        >
+          <ArrowForwardIosRoundedIcon sx={{ color: "white" }} />
         </IconButton>
       </Box>
 
@@ -174,7 +224,7 @@ export default function MovieGrid() {
           },
         }}
       >
-        {movies.map((movie, index) => (
+        {randomMovies.map((movie: any, index: number) => (
           <Link key={index} href={`/movie/${movie.slug}`} passHref>
             <Card
               key={index}
@@ -236,13 +286,13 @@ export default function MovieGrid() {
           disabled={recommendedScrollX === 0}
           onClick={() => handleRecommendedScroll(-200)}
         >
-          <ArrowBack sx={{ color: "white" }} />
+          <ArrowBackIosRoundedIcon sx={{ color: "white" }} />
         </IconButton>
         <IconButton
           color="primary"
           onClick={() => handleRecommendedScroll(200)}
         >
-          <ArrowForward sx={{ color: "white" }} />
+          <ArrowForwardIosRoundedIcon sx={{ color: "white" }} />
         </IconButton>
       </Box>
 
