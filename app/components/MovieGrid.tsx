@@ -62,7 +62,7 @@ export default function MovieGrid() {
     index: number,
     e: React.MouseEvent<HTMLButtonElement>
   ) => {
-    e.stopPropagation(); // Förhindra klick på ikon att bubbla upp till förälderkomponenten
+    e.preventDefault(); // Förhindra standardbeteendet för länken
     setIconState((prevStates) => {
       const newStates = [...prevStates];
       newStates[index] = !newStates[index];
