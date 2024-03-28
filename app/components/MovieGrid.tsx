@@ -24,6 +24,7 @@ export default function MovieGrid() {
     Array(movies.length).fill(false)
   );
   const [randomMovies, setRandomMovies] = useState<any>([]);
+  const [bookmarkedMovies, setBookmarkedMovies] = useState<string[]>([]);
 
   const recommendedListRef = useRef<HTMLDivElement | null>(null);
   const trendingListRef = useRef<HTMLDivElement | null>(null);
@@ -68,6 +69,19 @@ export default function MovieGrid() {
       newStates[index] = !newStates[index];
       return newStates;
     });
+
+    // Lägg till filmen i bokmärken om den inte redan finns där, annars ta bort den
+    const movieToAdd = movies[index];
+    if (!bookmarkedMovies.includes(movieToAdd.slug)) {
+      setBookmarkedMovies((prevBookmarks) => [
+        ...prevBookmarks,
+        movieToAdd.slug,
+      ]);
+    } else {
+      setBookmarkedMovies((prevBookmarks) =>
+        prevBookmarks.filter((slug) => slug !== movieToAdd.slug)
+      );
+    }
   };
 
   const trendingMovies = movies.filter((movie) => movie.isTrending);
