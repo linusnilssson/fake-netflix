@@ -52,7 +52,7 @@ export default function MovieProvider(props: PropsWithChildren<{}>) {
       if (isFavorite) {
         return prevBookmarked.filter((movie) => movie.slug !== slug);
       } else {
-        const movieToAdd = movies.find((movie) => movie.slug === slug);
+        const movieToAdd = moviesData.find((movie) => movie.slug === slug);
         if (movieToAdd) {
           return [...prevBookmarked, movieToAdd];
         }

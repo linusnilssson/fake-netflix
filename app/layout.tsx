@@ -1,18 +1,24 @@
-import { CssBaseline } from "@mui/material";
-import { Box } from "@mui/system";
+import { Inter } from "next/font/google";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import MovieProvider from "./context/MovieContext";
 import "./globals.css";
-import { LayoutProps } from "./types";
 
-export default function RootLayout({ children }: LayoutProps) {
+const inter = Inter({ subsets: ["latin"] });
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
-      <body>
-        <CssBaseline />
-        <Header />
-        <Box component="main">{children}</Box>
-        <Footer />
+      <body className={inter.className}>
+        <MovieProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </MovieProvider>
       </body>
     </html>
   );
