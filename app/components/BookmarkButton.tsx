@@ -9,7 +9,7 @@ export default function BookmarkButton({ slug }: { slug: string }) {
   const isBookmarked = bookmarkedMovies.some((movie) => movie.slug === slug);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault(); // Förhindra standardbeteendet
+    event.preventDefault();
     toggleBookmark(slug);
   };
 
