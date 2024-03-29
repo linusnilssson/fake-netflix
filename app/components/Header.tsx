@@ -10,14 +10,13 @@ import Badge from "@mui/material/Badge";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import InputBase from "@mui/material/InputBase";
+import Link from "@mui/material/Link";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { alpha, styled } from "@mui/material/styles";
-import BookmarkIcon from '@mui/icons-material/Bookmark';
 import * as React from "react";
-import Link from '@mui/material/Link';
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -63,7 +62,8 @@ export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
-  const [isSecondMobileMenuOpen, setSecondMobileMenuOpen] = React.useState(false);
+  const [isSecondMobileMenuOpen, setSecondMobileMenuOpen] =
+    React.useState(false);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -132,11 +132,7 @@ export default function PrimarySearchAppBar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 4 new mails"
-          color="inherit"
-        >
+        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
             <MailIcon />
           </Badge>
@@ -169,14 +165,14 @@ export default function PrimarySearchAppBar() {
       </MenuItem>
     </Menu>
   );
-  const secondMobileMenuId = 'secondary-search-account-menu-mobile';
+  const secondMobileMenuId = "secondary-search-account-menu-mobile";
   const renderSecondMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
+      anchorOrigin={{ vertical: "top", horizontal: "left" }}
       id={secondMobileMenuId}
       keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+      transformOrigin={{ vertical: "top", horizontal: "left" }}
       open={isSecondMobileMenuOpen}
       onClose={handleSecondMobileMenuClose}
     >
@@ -184,13 +180,13 @@ export default function PrimarySearchAppBar() {
       <MenuItem onClick={handleSecondMobileMenuClose}>Series</MenuItem>
       <MenuItem onClick={handleSecondMobileMenuClose}>New</MenuItem>
       <MenuItem onClick={handleSecondMobileMenuClose}>Popular</MenuItem>
-      <MenuItem onClick={handleSecondMobileMenuClose}>Bookmark</MenuItem>
+      <MenuItem onClick={handleSecondMobileMenuClose}>My List</MenuItem>
     </Menu>
   );
-  
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ backgroundColor: 'black' }}>
+      <AppBar position="static" style={{ backgroundColor: "black" }}>
         <Toolbar>
           <IconButton
             size="large"
@@ -209,8 +205,8 @@ export default function PrimarySearchAppBar() {
             component="div"
             sx={{
               display: { xs: "none", sm: "block" },
-              color: 'red', // This is the color of the text XDANI
-              fontSize: '2rem', // This is the size of the text X DANI
+              color: "red", // This is the color of the text XDANI
+              fontSize: "2rem", // This is the size of the text X DANI
             }}
           >
             X-DANI
@@ -232,41 +228,95 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <MenuItem>
-                <Link href="/" underline="hover"sx={{'&:hover': { 
-              textDecoration: 'underline',textDecorationColor: 'red',},}}>
-                  <Typography style={{ color: 'white', textDecoration: 'none'}}>
-                    Home </Typography>
-              </Link>
-            </MenuItem>
-            <MenuItem>
-            <Link href="/series"  underline="hover"sx={{'&:hover': { 
-              textDecoration: 'underline',textDecorationColor: 'red',},}}>
-                <Typography style={{ color: 'white', textDecoration: 'none' }}>
-                  Series </Typography>
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link href="/new" underline="hover"sx={{'&:hover': { 
-              textDecoration: 'underline',textDecorationColor: 'red',},}}>
-                <Typography style={{ color: 'white', textDecoration: 'none' }}>
-                  New</Typography>
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link href="/popular" underline="hover"sx={{'&:hover': { 
-              textDecoration: 'underline',textDecorationColor: 'red',},}}>
-                <Typography style={{ color: 'white', textDecoration: 'none' }}>
-                  Popular</Typography>
-              </Link>
-            </MenuItem>
-            <MenuItem>
-            <Link href="/bookmark" underline="hover" sx={{'&:hover': { 
-              textDecoration: 'underline',textDecorationColor: 'red',},}}>
-            <Typography style={{ color: 'white', textDecoration: 'none' }}>
-              Bookmark
-            </Typography>
-            </Link>
-            </MenuItem>
+                <Link
+                  href="/"
+                  underline="hover"
+                  sx={{
+                    "&:hover": {
+                      textDecoration: "underline",
+                      textDecorationColor: "red",
+                    },
+                  }}
+                >
+                  <Typography
+                    style={{ color: "white", textDecoration: "none" }}
+                  >
+                    Home{" "}
+                  </Typography>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  href="/series"
+                  underline="hover"
+                  sx={{
+                    "&:hover": {
+                      textDecoration: "underline",
+                      textDecorationColor: "red",
+                    },
+                  }}
+                >
+                  <Typography
+                    style={{ color: "white", textDecoration: "none" }}
+                  >
+                    Series{" "}
+                  </Typography>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  href="/new"
+                  underline="hover"
+                  sx={{
+                    "&:hover": {
+                      textDecoration: "underline",
+                      textDecorationColor: "red",
+                    },
+                  }}
+                >
+                  <Typography
+                    style={{ color: "white", textDecoration: "none" }}
+                  >
+                    New
+                  </Typography>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  href="/popular"
+                  underline="hover"
+                  sx={{
+                    "&:hover": {
+                      textDecoration: "underline",
+                      textDecorationColor: "red",
+                    },
+                  }}
+                >
+                  <Typography
+                    style={{ color: "white", textDecoration: "none" }}
+                  >
+                    Popular
+                  </Typography>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <Link
+                  href="/bookmark"
+                  underline="hover"
+                  sx={{
+                    "&:hover": {
+                      textDecoration: "underline",
+                      textDecorationColor: "red",
+                    },
+                  }}
+                >
+                  <Typography
+                    style={{ color: "white", textDecoration: "none" }}
+                  >
+                    My List
+                  </Typography>
+                </Link>
+              </MenuItem>
               <Badge badgeContent={90} color="error">
                 <MailIcon />
               </Badge>
@@ -289,7 +339,7 @@ export default function PrimarySearchAppBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle /> 
+              <AccountCircle />
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
@@ -310,7 +360,7 @@ export default function PrimarySearchAppBar() {
       {renderMobileMenu}
       {renderMenu}
       {renderMenu}
-    {renderSecondMobileMenu}
+      {renderSecondMobileMenu}
     </Box>
   );
 }

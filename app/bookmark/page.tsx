@@ -16,9 +16,16 @@ export default function BookmarkPage() {
 
   return (
     <Box sx={{ backgroundColor: "#000000", p: 2 }}>
-      <Typography variant="h4" sx={{ color: "white" }}>
-        Bookmark Page
-      </Typography>
+      {bookmarkedMovies.length > 0 ? (
+        <Typography variant="h4" sx={{ color: "white", paddingY: "2rem" }}>
+          My list
+        </Typography>
+      ) : (
+        <Typography variant="h4" sx={{ color: "white" }}>
+          You have no movies in your list...
+        </Typography>
+      )}
+
       <Box
         sx={{
           display: "grid",
@@ -38,8 +45,6 @@ export default function BookmarkPage() {
                   sx={{ height: 300, objectFit: "cover" }}
                 />
               </Link>
-
-              {/* Du kan lägga till annan information här som titel, beskrivning etc. */}
             </CardActionArea>
           </Card>
         ))}
