@@ -1,5 +1,4 @@
 "use client";
-
 import {
   PropsWithChildren,
   createContext,
@@ -7,6 +6,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import moviesData from "../../data/movies.json";
 
 export interface Movie {
   title: string;
@@ -34,25 +34,23 @@ const MovieContext = createContext<MovieContextValue>({
 });
 
 export default function MovieProvider(props: PropsWithChildren<{}>) {
-  const moviesData: Movie[] = []; // Replace [] with the actual movie data
-
   const [movies, setMovies] = useState<Movie[]>(moviesData);
   const [bookmarkedMovies, setBookmarkedMovies] = useState<Movie[]>(() => {
-    const savedBookmarked = localStorage.getItem("favoriteMovies");
+    const savedBookmarked = localStorage.getItem("bookmarkedMovies");
     return savedBookmarked ? JSON.parse(savedBookmarked) : [];
   });
 
   useEffect(() => {
-    localStorage.setItem("favoriteMovies", JSON.stringify(bookmarkedMovies));
+    localStorage.setItem("bookmarkedMovies", JSON.stringify(bookmarkedMovies));
   }, [bookmarkedMovies]);
 
   const toggleBookmark = (slug: string) => {
     setBookmarkedMovies((prevBookmarked) => {
-      const isFavorite = prevBookmarked.some((movie) => movie.slug === slug);
-      if (isFavorite) {
+      const isBookmarked = prevBookmarked.some((movie) => movie.slug === slug);
+      if (isBookmarked) {
         return prevBookmarked.filter((movie) => movie.slug !== slug);
       } else {
-        const movieToAdd = moviesData.find((movie) => movie.slug === slug);
+        const movieToAdd = movies.find((movie) => movie.slug === slug);
         if (movieToAdd) {
           return [...prevBookmarked, movieToAdd];
         }

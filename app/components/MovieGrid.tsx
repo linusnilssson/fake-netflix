@@ -20,11 +20,8 @@ export default function MovieGrid() {
   const [recommendedScrollX, setRecommendedScrollX] = useState(0);
   const [trendingScrollX, setTrendingScrollX] = useState(0);
   const [hovered, setHovered] = useState<number | null>(null);
-  const [iconState, setIconState] = useState<Array<boolean>>(
-    Array(movies.length).fill(false)
-  );
+ 
   const [randomMovies, setRandomMovies] = useState<any>([]);
-  const [bookmarkedMovies, setBookmarkedMovies] = useState<string[]>([]);
 
   const recommendedListRef = useRef<HTMLDivElement | null>(null);
   const trendingListRef = useRef<HTMLDivElement | null>(null);
@@ -57,28 +54,6 @@ export default function MovieGrid() {
 
   const handleMouseLeave = () => {
     setHovered(null);
-  };
-
-  const handleIconClick = (
-    index: number,
-    e: React.MouseEvent<HTMLButtonElement>
-  ) => {
-    e.preventDefault();
-    const newIconState = [...iconState];
-    newIconState[index] = !newIconState[index];
-    setIconState(newIconState);
-
-    const movieToAdd = movies[index];
-    if (!bookmarkedMovies.includes(movieToAdd.slug)) {
-      setBookmarkedMovies((prevBookmarks) => [
-        ...prevBookmarks,
-        movieToAdd.slug,
-      ]);
-    } else {
-      setBookmarkedMovies((prevBookmarks) =>
-        prevBookmarks.filter((slug) => slug !== movieToAdd.slug)
-      );
-    }
   };
 
   const trendingMovies = movies.filter((movie) => movie.isTrending);
@@ -167,8 +142,7 @@ export default function MovieGrid() {
                     </IconButton>
                     <BookmarkButton
                       slug={movie.slug}
-                      isBookmarked={iconState[index]}
-                      onClick={(slug, e) => handleIconClick(index, e)}
+                     
                     />
                   </Box>
                 )}
@@ -271,8 +245,7 @@ export default function MovieGrid() {
                     </IconButton>
                     <BookmarkButton
                       slug={movie.slug}
-                      isBookmarked={iconState[index]}
-                      onClick={(slug, e) => handleIconClick(index, e)}
+                  
                     />
                   </Box>
                 )}
@@ -348,8 +321,7 @@ export default function MovieGrid() {
                     </IconButton>
                     <BookmarkButton
                       slug={movie.slug}
-                      isBookmarked={iconState[index]}
-                      onClick={(slug, e) => handleIconClick(index, e)}
+                    
                     />
                   </Box>
                 )}
