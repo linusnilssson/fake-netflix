@@ -20,7 +20,7 @@ export default function MovieGrid() {
   const [recommendedScrollX, setRecommendedScrollX] = useState(0);
   const [trendingScrollX, setTrendingScrollX] = useState(0);
   const [hovered, setHovered] = useState<number | null>(null);
- 
+
   const [randomMovies, setRandomMovies] = useState<any>([]);
 
   const recommendedListRef = useRef<HTMLDivElement | null>(null);
@@ -140,10 +140,7 @@ export default function MovieGrid() {
                     >
                       <PlayArrow sx={{ color: "white" }} />
                     </IconButton>
-                    <BookmarkButton
-                      slug={movie.slug}
-                     
-                    />
+                    <BookmarkButton slug={movie.slug} />
                   </Box>
                 )}
               </CardActionArea>
@@ -243,10 +240,7 @@ export default function MovieGrid() {
                     >
                       <PlayArrow sx={{ color: "white" }} />
                     </IconButton>
-                    <BookmarkButton
-                      slug={movie.slug}
-                  
-                    />
+                    <BookmarkButton slug={movie.slug} />
                   </Box>
                 )}
               </CardActionArea>
@@ -319,10 +313,7 @@ export default function MovieGrid() {
                     >
                       <PlayArrow sx={{ color: "white" }} />
                     </IconButton>
-                    <BookmarkButton
-                      slug={movie.slug}
-                    
-                    />
+                    <BookmarkButton slug={movie.slug} />
                   </Box>
                 )}
               </CardActionArea>
