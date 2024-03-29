@@ -233,8 +233,10 @@ export default function PrimarySearchAppBar() {
                   underline="hover"
                   sx={{
                     "&:hover": {
-                      textDecoration: "underline",
-                      textDecorationColor: "red",
+
+                      textDecoration: "none",
+                      textDecorationColor: "none",
+
                     },
                   }}
                 >
@@ -251,8 +253,10 @@ export default function PrimarySearchAppBar() {
                   underline="hover"
                   sx={{
                     "&:hover": {
-                      textDecoration: "underline",
-                      textDecorationColor: "red",
+
+                      textDecoration: "none",
+                      textDecorationColor: "none",
+
                     },
                   }}
                 >
@@ -269,8 +273,10 @@ export default function PrimarySearchAppBar() {
                   underline="hover"
                   sx={{
                     "&:hover": {
-                      textDecoration: "underline",
-                      textDecorationColor: "red",
+
+                      textDecoration: "none",
+                      textDecorationColor: "none",
+
                     },
                   }}
                 >
@@ -287,8 +293,10 @@ export default function PrimarySearchAppBar() {
                   underline="hover"
                   sx={{
                     "&:hover": {
-                      textDecoration: "underline",
-                      textDecorationColor: "red",
+
+                      textDecoration: "none",
+                      textDecorationColor: "none",
+
                     },
                   }}
                 >
@@ -305,15 +313,19 @@ export default function PrimarySearchAppBar() {
                   underline="hover"
                   sx={{
                     "&:hover": {
-                      textDecoration: "underline",
-                      textDecorationColor: "red",
+
+                      textDecoration: "none",
+                      textDecorationColor: "none",
+
                     },
                   }}
                 >
                   <Typography
                     style={{ color: "white", textDecoration: "none" }}
                   >
+
                     My List
+
                   </Typography>
                 </Link>
               </MenuItem>
