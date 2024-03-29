@@ -7,11 +7,12 @@ import {
   Link,
   Typography,
 } from "@mui/material";
-import { title } from "process";
 import { useMovies } from "../context/MovieContext";
 
 export default function BookmarkPage() {
   const { bookmarkedMovies } = useMovies();
+
+  console.log("Bookmarked Movies:", bookmarkedMovies);
 
   return (
     <Box sx={{ backgroundColor: "#000000", p: 2 }}>
@@ -26,7 +27,7 @@ export default function BookmarkPage() {
         }}
       >
         {bookmarkedMovies.map((movie) => (
-          <Card key={title} sx={{ minWidth: 200, position: "relative" }}>
+          <Card key={movie.slug} sx={{ minWidth: 200, position: "relative" }}>
             <CardActionArea>
               <Link href={`/movie/${movie.slug}`}>
                 <CardMedia

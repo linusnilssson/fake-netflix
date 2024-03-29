@@ -63,14 +63,11 @@ export default function MovieGrid() {
     index: number,
     e: React.MouseEvent<HTMLButtonElement>
   ) => {
-    e.preventDefault(); // Förhindra standardbeteendet för länken
-    setIconState((prevStates) => {
-      const newStates = [...prevStates];
-      newStates[index] = !newStates[index];
-      return newStates;
-    });
+    e.preventDefault();
+    const newIconState = [...iconState];
+    newIconState[index] = !newIconState[index];
+    setIconState(newIconState);
 
-    // Lägg till filmen i bokmärken om den inte redan finns där, annars ta bort den
     const movieToAdd = movies[index];
     if (!bookmarkedMovies.includes(movieToAdd.slug)) {
       setBookmarkedMovies((prevBookmarks) => [
@@ -168,7 +165,11 @@ export default function MovieGrid() {
                     >
                       <PlayArrow sx={{ color: "white" }} />
                     </IconButton>
-                    <BookmarkButton slug={movie.slug} />
+                    <BookmarkButton
+                      slug={movie.slug}
+                      isBookmarked={iconState[index]}
+                      onClick={(slug, e) => handleIconClick(index, e)}
+                    />
                   </Box>
                 )}
               </CardActionArea>
@@ -268,7 +269,11 @@ export default function MovieGrid() {
                     >
                       <PlayArrow sx={{ color: "white" }} />
                     </IconButton>
-                    <BookmarkButton slug={movie.slug} />
+                    <BookmarkButton
+                      slug={movie.slug}
+                      isBookmarked={iconState[index]}
+                      onClick={(slug, e) => handleIconClick(index, e)}
+                    />
                   </Box>
                 )}
               </CardActionArea>
@@ -341,7 +346,11 @@ export default function MovieGrid() {
                     >
                       <PlayArrow sx={{ color: "white" }} />
                     </IconButton>
-                    <BookmarkButton slug={movie.slug} />
+                    <BookmarkButton
+                      slug={movie.slug}
+                      isBookmarked={iconState[index]}
+                      onClick={(slug, e) => handleIconClick(index, e)}
+                    />
                   </Box>
                 )}
               </CardActionArea>

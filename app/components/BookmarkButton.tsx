@@ -3,13 +3,22 @@ import { AddRounded, CheckRounded } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import { useMovies } from "../context/MovieContext";
 
-export default function BookmarkButton({ slug }: { slug: string }) {
-  const { bookmarkedMovies, toggleBookmark } = useMovies();
-  const isBookmarked = bookmarkedMovies.some((movie) => movie.slug === slug);
+interface BookmarkButtonProps {
+  slug: string;
+  isBookmarked: boolean;
+  onClick: (slug: string, e: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+export default function BookmarkButton({
+  slug,
+  isBookmarked,
+  onClick,
+}: BookmarkButtonProps) {
+  const { toggleBookmark } = useMovies();
 
   return (
     <>
-      <IconButton onClick={() => toggleBookmark(slug)}>
+      <IconButton onClick={(e) => onClick(slug, e)}>
         {isBookmarked ? (
           <CheckRounded sx={{ color: "white" }} />
         ) : (
