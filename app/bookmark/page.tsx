@@ -1,16 +1,18 @@
-"use client"
+"use client";
 import {
   Box,
   Card,
   CardActionArea,
   CardMedia,
+  Link,
   Typography,
 } from "@mui/material";
-import { useState } from "react";
-import movies from "../../data/movies.json";
+import { title } from "process";
+import { useMovies } from "../context/MovieContext";
 
 export default function BookmarkPage() {
-  const [bookmarkedMovies, setBookmarkedMovies] = useState<string[]>([]);
+  const { bookmarkedMovies } = useMovies();
+
   return (
     <Box sx={{ backgroundColor: "#000000", p: 2 }}>
       <Typography variant="h4" sx={{ color: "white" }}>
@@ -23,11 +25,10 @@ export default function BookmarkPage() {
           gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
         }}
       >
-        {movies
-          .filter((movie) => bookmarkedMovies.includes(movie.slug))
-          .map((movie, index) => (
-            <Card key={index} sx={{ minWidth: 200, position: "relative" }}>
-              <CardActionArea>
+        {bookmarkedMovies.map((movie) => (
+          <Card key={title} sx={{ minWidth: 200, position: "relative" }}>
+            <CardActionArea>
+              <Link href={`/movie/${movie.slug}`}>
                 <CardMedia
                   component="img"
                   src={movie.thumbnail}
@@ -35,10 +36,12 @@ export default function BookmarkPage() {
                   loading="lazy"
                   sx={{ height: 300, objectFit: "cover" }}
                 />
-                {/* Du kan lägga till annan information här som titel, beskrivning etc. */}
-              </CardActionArea>
-            </Card>
-          ))}
+              </Link>
+
+              {/* Du kan lägga till annan information här som titel, beskrivning etc. */}
+            </CardActionArea>
+          </Card>
+        ))}
       </Box>
     </Box>
   );

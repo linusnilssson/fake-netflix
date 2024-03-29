@@ -1,6 +1,8 @@
 "use client";
 
-import { AddRounded, CheckRounded, PlayArrow } from "@mui/icons-material";
+import { PlayArrow } from "@mui/icons-material";
+import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
+import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import {
   Box,
   Card,
@@ -9,12 +11,10 @@ import {
   IconButton,
   Typography,
 } from "@mui/material";
-
-import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
-import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import movies from "../../data/movies.json";
+import BookmarkButton from "./BookmarkButton";
 
 export default function MovieGrid() {
   const [recommendedScrollX, setRecommendedScrollX] = useState(0);
@@ -168,16 +168,7 @@ export default function MovieGrid() {
                     >
                       <PlayArrow sx={{ color: "white" }} />
                     </IconButton>
-                    <IconButton
-                      color="primary"
-                      onClick={(e) => handleIconClick(index, e)}
-                    >
-                      {iconState[index] ? (
-                        <CheckRounded sx={{ color: "white" }} />
-                      ) : (
-                        <AddRounded sx={{ color: "white" }} />
-                      )}
-                    </IconButton>
+                    <BookmarkButton slug={movie.slug} />
                   </Box>
                 )}
               </CardActionArea>
@@ -277,16 +268,7 @@ export default function MovieGrid() {
                     >
                       <PlayArrow sx={{ color: "white" }} />
                     </IconButton>
-                    <IconButton
-                      color="primary"
-                      onClick={(e) => handleIconClick(index, e)}
-                    >
-                      {iconState[index] ? (
-                        <CheckRounded sx={{ color: "white" }} />
-                      ) : (
-                        <AddRounded sx={{ color: "white" }} />
-                      )}
-                    </IconButton>
+                    <BookmarkButton slug={movie.slug} />
                   </Box>
                 )}
               </CardActionArea>
@@ -359,16 +341,7 @@ export default function MovieGrid() {
                     >
                       <PlayArrow sx={{ color: "white" }} />
                     </IconButton>
-                    <IconButton
-                      color="primary"
-                      onClick={(e) => handleIconClick(index, e)}
-                    >
-                      {iconState[index] ? (
-                        <CheckRounded sx={{ color: "white" }} />
-                      ) : (
-                        <AddRounded sx={{ color: "white" }} />
-                      )}
-                    </IconButton>
+                    <BookmarkButton slug={movie.slug} />
                   </Box>
                 )}
               </CardActionArea>
