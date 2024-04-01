@@ -303,7 +303,7 @@ export default function MovieGrid() {
         {/* Left arrow for trending movies */}
         <IconButton
           color="primary"
-          disabled={trendingScrollX === 0}
+          disabled={recommendedScrollX === 0}
           onClick={() => handleRecommendedScroll(-200)}
           sx={{
             position: "absolute",
