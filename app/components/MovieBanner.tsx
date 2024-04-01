@@ -4,9 +4,20 @@ import AddIcon from "@mui/icons-material/Add";
 import { Box, Button, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import movies from "../../data/movies.json";
+import { useMovies } from "../context/MovieContext";
 
 export default function MovieBanner() {
+  const { bookmarkedMovies, toggleBookmark } = useMovies();
   const [bannerMovie, setBannerMovie] = useState<any>(null);
+
+  const handleBookmarkClick = () => {
+    if (!bannerMovie) return;
+    toggleBookmark(bannerMovie.slug);
+  };
+
+  const isBookmarked =
+    bannerMovie &&
+    bookmarkedMovies.some((movie) => movie.slug === bannerMovie.slug);
 
   useEffect(() => {
     const trendingMovies = movies.filter((movie) => movie.isTrending);
@@ -51,14 +62,14 @@ export default function MovieBanner() {
                 },
               }}
             >
-              {bannerMovie.title}
+              {bannerMovie?.title}
             </Typography>
 
             <Typography
               variant="h6"
               sx={{ color: "white", fontStyle: "italic" }}
             >
-              {bannerMovie.genre}
+              {bannerMovie?.genre}
             </Typography>
           </Box>
           <Box
@@ -84,6 +95,7 @@ export default function MovieBanner() {
             </Button>
             <Button
               variant="contained"
+              onClick={handleBookmarkClick}
               startIcon={<AddIcon />}
               sx={{
                 backgroundColor: "lightgray",
