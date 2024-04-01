@@ -192,7 +192,9 @@ export default function MovieGrid() {
       <Box
         ref={recommendedListRef}
         sx={{
+          position: "relative",
           display: "flex",
+          alignItems: "center",
           overflowX: "auto",
           gap: 2,
           scrollbarWidth: "none",
@@ -207,7 +209,7 @@ export default function MovieGrid() {
               key={index}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
-              sx={{ height: 182, width: 342, objectFit: "cover" }}
+              sx={{ position: "relative" }}
             >
               <CardActionArea>
                 <CardMedia
@@ -215,7 +217,7 @@ export default function MovieGrid() {
                   src={movie.thumbnail}
                   alt={movie.title}
                   loading="lazy"
-                  sx={{ objectFit: "cover" }}
+                  sx={{ height: 182, width: 342, objectFit: "cover" }}
                 />
                 {hovered === index && (
                   <Box
@@ -247,18 +249,40 @@ export default function MovieGrid() {
             </Card>
           </Link>
         ))}
-      </Box>
-      <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
+        {/* Left arrow for trending movies */}
         <IconButton
           color="primary"
-          disabled={recommendedScrollX === 0}
+          disabled={trendingScrollX === 0}
           onClick={() => handleRecommendedScroll(-200)}
+          sx={{
+            position: "absolute",
+            left: 0,
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 1,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            "&:hover": {
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+            },
+          }}
         >
           <ArrowBackIosRoundedIcon sx={{ color: "white" }} />
         </IconButton>
+        {/* Right arrow for trending movies */}
         <IconButton
           color="primary"
           onClick={() => handleRecommendedScroll(200)}
+          sx={{
+            position: "absolute",
+            right: 0,
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 1,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            "&:hover": {
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+            },
+          }}
         >
           <ArrowForwardIosRoundedIcon sx={{ color: "white" }} />
         </IconButton>
