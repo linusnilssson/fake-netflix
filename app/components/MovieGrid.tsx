@@ -15,16 +15,19 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import movies from "../../data/movies.json";
 import BookmarkButton from "./BookmarkButton";
+import MovieBanner from "./MovieBanner";
 
 export default function MovieGrid() {
   const [recommendedScrollX, setRecommendedScrollX] = useState(0);
   const [trendingScrollX, setTrendingScrollX] = useState(0);
+  const [allMoviesScrollX, setAllMoviesScrollX] = useState(0);
   const [hovered, setHovered] = useState<number | null>(null);
 
   const [randomMovies, setRandomMovies] = useState<any>([]);
 
   const recommendedListRef = useRef<HTMLDivElement | null>(null);
   const trendingListRef = useRef<HTMLDivElement | null>(null);
+  const allMoviesListRef = useRef<HTMLDivElement | null>(null);
 
   const handleRecommendedScroll = (scrollOffset: number) => {
     if (recommendedListRef.current) {
@@ -41,6 +44,17 @@ export default function MovieGrid() {
     if (trendingListRef.current) {
       const newScrollX = trendingScrollX + scrollOffset * 4;
       trendingListRef.current.scrollTo({
+        left: newScrollX,
+        behavior: "smooth",
+      });
+      setTrendingScrollX(newScrollX);
+    }
+  };
+
+  const handleAllMoviesScroll = (scrollOffset: number) => {
+    if (allMoviesListRef.current) {
+      const newScrollX = allMoviesScrollX + scrollOffset * 4;
+      allMoviesListRef.current.scrollTo({
         left: newScrollX,
         behavior: "smooth",
       });
@@ -83,7 +97,11 @@ export default function MovieGrid() {
 
   return (
     <Box sx={{ backgroundColor: "#000000", p: 2 }}>
-      <Typography variant="h3" sx={{ color: "white", mb: 2 }}>
+      <MovieBanner />
+      <Typography
+        variant="h4"
+        sx={{ color: "white", marginBottom: "2rem", marginTop: "2rem" }}
+      >
         Trending movies
       </Typography>
       <Box
@@ -93,6 +111,7 @@ export default function MovieGrid() {
           display: "flex",
           alignItems: "center",
           overflowX: "auto",
+          marginBottom: "2rem",
           gap: 2,
           scrollbarWidth: "none",
           "::-webkit-scrollbar": {
@@ -186,7 +205,7 @@ export default function MovieGrid() {
         </IconButton>
       </Box>
 
-      <Typography variant="h3" sx={{ color: "white", mb: 2 }}>
+      <Typography variant="h4" sx={{ color: "white", marginBottom: "2rem" }}>
         Recommended movies
       </Typography>
       <Box
@@ -196,6 +215,7 @@ export default function MovieGrid() {
           display: "flex",
           alignItems: "center",
           overflowX: "auto",
+          marginBottom: "2rem",
           gap: 2,
           scrollbarWidth: "none",
           "::-webkit-scrollbar": {
@@ -288,23 +308,32 @@ export default function MovieGrid() {
         </IconButton>
       </Box>
 
-      <Typography variant="h3" sx={{ color: "white", mb: 2 }}>
+      <Typography variant="h4" sx={{ color: "white", marginBottom: "2rem" }}>
         All movies
       </Typography>
       <Box
+        ref={allMoviesListRef}
         sx={{
-          display: "grid",
+          position: "relative",
+          display: "flex",
+          alignItems: "center",
+          overflowX: "auto",
+          marginBottom: "2rem",
           gap: 2,
-          gridTemplateColumns: "repeat(auto-fill, minmax(182px, 1fr))",
+          scrollbarWidth: "none",
+          "::-webkit-scrollbar": {
+            display: "none",
+          },
         }}
       >
+        {/* All movies */}
         {movies.map((movie, index) => (
           <Link key={index} href={`/movie/${movie.slug}`} passHref>
             <Card
               key={index}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
-              sx={{ height: 192, width: 342, position: "relative" }}
+              sx={{ position: "relative" }}
             >
               <CardActionArea>
                 <CardMedia
@@ -312,7 +341,7 @@ export default function MovieGrid() {
                   src={movie.thumbnail}
                   alt={movie.title}
                   loading="lazy"
-                  sx={{ height: 192, width: 342, objectFit: "cover" }}
+                  sx={{ height: 182, width: 342, objectFit: "cover" }}
                 />
                 {hovered === index && (
                   <Box
@@ -344,6 +373,43 @@ export default function MovieGrid() {
             </Card>
           </Link>
         ))}
+        {/* Left arrow for trending movies */}
+        <IconButton
+          color="primary"
+          disabled={allMoviesScrollX === 0}
+          onClick={() => handleAllMoviesScroll(-200)}
+          sx={{
+            position: "absolute",
+            left: 0,
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 1,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            "&:hover": {
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+            },
+          }}
+        >
+          <ArrowBackIosRoundedIcon sx={{ color: "white" }} />
+        </IconButton>
+        {/* Right arrow for trending movies */}
+        <IconButton
+          color="primary"
+          onClick={() => handleAllMoviesScroll(200)}
+          sx={{
+            position: "absolute",
+            right: 0,
+            top: "50%",
+            transform: "translateY(-50%)",
+            zIndex: 1,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            "&:hover": {
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+            },
+          }}
+        >
+          <ArrowForwardIosRoundedIcon sx={{ color: "white" }} />
+        </IconButton>
       </Box>
     </Box>
   );
