@@ -73,12 +73,14 @@ export default function MovieBanner() {
               {bannerMovie?.title}
             </Typography>
 
-            <Typography
-              variant="h6"
-              sx={{ color: "white", fontStyle: "italic" }}
-            >
-              {bannerMovie?.genre}
-            </Typography>
+            <Box>
+              <Typography
+                variant="body2"
+                sx={{ color: "white", fontSize: "1rem", paddingTop: "1rem" }}
+              >
+                {bannerMovie.synopsis}
+              </Typography>
+            </Box>
           </Box>
           <Box
             display="flex"
@@ -116,14 +118,6 @@ export default function MovieBanner() {
             >
               {buttonText}
             </Button>
-          </Box>
-          <Box>
-            <Typography
-              variant="body2"
-              sx={{ color: "white", fontSize: "1rem" }}
-            >
-              {bannerMovie.synopsis}
-            </Typography>
           </Box>
         </Grid>
       </Grid>

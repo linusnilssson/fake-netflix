@@ -18,7 +18,7 @@ import BookmarkButton from "./BookmarkButton";
 import MovieBanner from "./MovieBanner";
 
 interface HoveredMovie {
-  index: number;
+  id: number;
   listName: string;
 }
 
@@ -80,8 +80,8 @@ export default function MovieGrid() {
     }
   };
 
-  const handleMouseEnter = (index: number, listName: string) => {
-    setHoveredIndex({ index, listName });
+  const handleMouseEnter = (id: number, listName: string) => {
+    setHoveredIndex({ id, listName });
   };
 
   const handleMouseLeave = () => {
@@ -148,10 +148,10 @@ export default function MovieGrid() {
       >
         {/* Trending movies */}
         {trendingMovies.map((movie, index) => (
-          <Link key={index} href={`/movie/${movie.slug}`} passHref>
+          <Link key={movie.id} href={`/movie/${movie.slug}`} passHref>
             <Card
-              key={index}
-              onMouseEnter={() => handleMouseEnter(index, "trending")}
+              key={movie.id}
+              onMouseEnter={() => handleMouseEnter(movie.id, "trending")}
               onMouseLeave={handleMouseLeave}
               sx={{ position: "relative" }}
             >
@@ -164,7 +164,7 @@ export default function MovieGrid() {
                   sx={{ height: 182, width: 342, objectFit: "cover" }}
                 />
                 {hoveredIndex &&
-                  hoveredIndex.index === index &&
+                  hoveredIndex.id === movie.id &&
                   hoveredIndex.listName === "trending" && (
                     <Box
                       sx={{
@@ -219,7 +219,7 @@ export default function MovieGrid() {
           color="primary"
           onClick={() => handleTrendingScroll(200)}
           sx={{
-            position: "absolute",
+            position: "sticky",
             right: 0,
             top: "50%",
             transform: "translateY(-50%)",
@@ -253,10 +253,10 @@ export default function MovieGrid() {
         }}
       >
         {randomMovies.map((movie: any, index: number) => (
-          <Link key={index} href={`/movie/${movie.slug}`} passHref>
+          <Link key={movie.id} href={`/movie/${movie.slug}`} passHref>
             <Card
-              key={index}
-              onMouseEnter={() => handleMouseEnter(index, "recommended")}
+              key={movie.id}
+              onMouseEnter={() => handleMouseEnter(movie.id, "recommended")}
               onMouseLeave={handleMouseLeave}
               sx={{ position: "relative" }}
             >
@@ -269,7 +269,7 @@ export default function MovieGrid() {
                   sx={{ height: 182, width: 342, objectFit: "cover" }}
                 />
                 {hoveredIndex &&
-                  hoveredIndex.index === index &&
+                  hoveredIndex.id === movie.id &&
                   hoveredIndex.listName === "recommended" && (
                     <Box
                       sx={{
@@ -324,7 +324,7 @@ export default function MovieGrid() {
           color="primary"
           onClick={() => handleRecommendedScroll(200)}
           sx={{
-            position: "absolute",
+            position: "sticky",
             right: 0,
             top: "50%",
             transform: "translateY(-50%)",
@@ -362,10 +362,10 @@ export default function MovieGrid() {
         }}
       >
         {genreMovies.map((movie, index) => (
-          <Link key={index} href={`/movie/${movie.slug}`} passHref>
+          <Link key={movie.id} href={`/movie/${movie.slug}`} passHref>
             <Card
-              key={index}
-              onMouseEnter={() => handleMouseEnter(index, "genre")}
+              key={movie.id}
+              onMouseEnter={() => handleMouseEnter(movie.id, "genre")}
               onMouseLeave={handleMouseLeave}
               sx={{ position: "relative" }}
             >
@@ -378,7 +378,7 @@ export default function MovieGrid() {
                   sx={{ height: 182, width: 342, objectFit: "cover" }}
                 />
                 {hoveredIndex &&
-                  hoveredIndex.index === index &&
+                  hoveredIndex.id === movie.id &&
                   hoveredIndex.listName === "genre" && (
                     <Box
                       sx={{
@@ -433,7 +433,7 @@ export default function MovieGrid() {
           color="primary"
           onClick={() => handleGenreScroll(200)}
           sx={{
-            position: "absolute",
+            position: "sticky",
             right: 0,
             top: "50%",
             transform: "translateY(-50%)",
@@ -468,10 +468,10 @@ export default function MovieGrid() {
       >
         {/* All movies */}
         {movies.map((movie, index) => (
-          <Link key={index} href={`/movie/${movie.slug}`} passHref>
+          <Link key={movie.id} href={`/movie/${movie.slug}`} passHref>
             <Card
-              key={index}
-              onMouseEnter={() => handleMouseEnter(index, "allMovies")}
+              key={movie.id}
+              onMouseEnter={() => handleMouseEnter(movie.id, "allMovies")}
               onMouseLeave={handleMouseLeave}
               sx={{ position: "relative" }}
             >
@@ -484,7 +484,7 @@ export default function MovieGrid() {
                   sx={{ height: 182, width: 342, objectFit: "cover" }}
                 />
                 {hoveredIndex &&
-                  hoveredIndex.index === index &&
+                  hoveredIndex.id === movie.id &&
                   hoveredIndex.listName === "allMovies" && (
                     <Box
                       sx={{
@@ -539,7 +539,7 @@ export default function MovieGrid() {
           color="primary"
           onClick={() => handleAllMoviesScroll(200)}
           sx={{
-            position: "absolute",
+            position: "sticky",
             right: 0,
             top: "50%",
             transform: "translateY(-50%)",
