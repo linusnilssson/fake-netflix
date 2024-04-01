@@ -107,7 +107,7 @@ export default function MovieGrid() {
               key={index}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
-              sx={{ minWidth: 200, position: "relative" }}
+              sx={{ position: "relative" }}
             >
               <CardActionArea>
                 <CardMedia
@@ -115,7 +115,7 @@ export default function MovieGrid() {
                   src={movie.thumbnail}
                   alt={movie.title}
                   loading="lazy"
-                  sx={{ height: 300, objectFit: "cover" }}
+                  sx={{ height: 182, width: 342, objectFit: "cover" }}
                 />
                 {hovered === index && (
                   <Box
@@ -207,7 +207,7 @@ export default function MovieGrid() {
               key={index}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
-              sx={{ minWidth: 200, position: "relative" }}
+              sx={{ height: 182, width: 342, objectFit: "cover" }}
             >
               <CardActionArea>
                 <CardMedia
@@ -215,7 +215,7 @@ export default function MovieGrid() {
                   src={movie.thumbnail}
                   alt={movie.title}
                   loading="lazy"
-                  sx={{ height: 300, objectFit: "cover" }}
+                  sx={{ objectFit: "cover" }}
                 />
                 {hovered === index && (
                   <Box
@@ -271,7 +271,7 @@ export default function MovieGrid() {
         sx={{
           display: "grid",
           gap: 2,
-          gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fill, minmax(182px, 1fr))",
         }}
       >
         {movies.map((movie, index) => (
@@ -280,7 +280,7 @@ export default function MovieGrid() {
               key={index}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
-              sx={{ minWidth: 200, position: "relative" }}
+              sx={{ height: 192, width: 342, position: "relative" }}
             >
               <CardActionArea>
                 <CardMedia
@@ -288,7 +288,7 @@ export default function MovieGrid() {
                   src={movie.thumbnail}
                   alt={movie.title}
                   loading="lazy"
-                  sx={{ height: 300, objectFit: "cover" }}
+                  sx={{ height: 192, width: 342, objectFit: "cover" }}
                 />
                 {hovered === index && (
                   <Box
