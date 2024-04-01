@@ -46,13 +46,14 @@ export default function MovieBanner() {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         minHeight: "100vh",
+        paddingLeft: "3rem",
       }}
     >
       <Grid
         container
         spacing={2}
         display="flex"
-        justifyContent="center"
+        justifyContent="left"
         paddingTop="12rem"
       >
         <Grid item xs={10} sm={10} md={7}>
