@@ -1,6 +1,5 @@
 "use client";
-import { PlayArrow } from "@mui/icons-material";
-import AddIcon from "@mui/icons-material/Add";
+import { CheckRounded, PlayArrow } from "@mui/icons-material";
 import { Box, Button, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import movies from "../../data/movies.json";
@@ -9,15 +8,23 @@ import { useMovies } from "../context/MovieContext";
 export default function MovieBanner() {
   const { bookmarkedMovies, toggleBookmark } = useMovies();
   const [bannerMovie, setBannerMovie] = useState<any>(null);
+  const [buttonText, setButtonText] = useState<string>("My List");
 
   const handleBookmarkClick = () => {
     if (!bannerMovie) return;
-    toggleBookmark(bannerMovie.slug);
-  };
 
-  const isBookmarked =
-    bannerMovie &&
-    bookmarkedMovies.some((movie) => movie.slug === bannerMovie.slug);
+    const isBookmarked = bookmarkedMovies.some(
+      (movie) => movie.slug === bannerMovie.slug
+    );
+
+    if (isBookmarked) {
+      toggleBookmark(bannerMovie.slug);
+      setButtonText("My List");
+    } else {
+      toggleBookmark(bannerMovie.slug);
+      setButtonText("Added");
+    }
+  };
 
   useEffect(() => {
     const trendingMovies = movies.filter((movie) => movie.isTrending);
@@ -96,7 +103,7 @@ export default function MovieBanner() {
             <Button
               variant="contained"
               onClick={handleBookmarkClick}
-              startIcon={<AddIcon />}
+              startIcon={<CheckRounded />}
               sx={{
                 backgroundColor: "lightgray",
                 color: "black",
@@ -106,7 +113,7 @@ export default function MovieBanner() {
                 },
               }}
             >
-              My List
+              {buttonText}
             </Button>
           </Box>
           <Box>
