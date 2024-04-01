@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+// import { ReactNode } from "react";
 
-export type PageProps = Readonly<{ params: { slug: string } }>;
-export type LayoutProps = Readonly<{ children: ReactNode }>;
+// export type PageProps = Readonly<{ params: { slug: string } }>;
+// export type LayoutProps = Readonly<{ children: ReactNode }>;

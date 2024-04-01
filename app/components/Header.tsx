@@ -180,7 +180,7 @@ export default function PrimarySearchAppBar() {
       <MenuItem onClick={handleSecondMobileMenuClose}>Series</MenuItem>
       <MenuItem onClick={handleSecondMobileMenuClose}>New</MenuItem>
       <MenuItem onClick={handleSecondMobileMenuClose}>Popular</MenuItem>
-      <MenuItem onClick={handleSecondMobileMenuClose}>Bookmark</MenuItem>
+      <MenuItem onClick={handleSecondMobileMenuClose}>My List</MenuItem>
     </Menu>
   );
 
@@ -233,8 +233,10 @@ export default function PrimarySearchAppBar() {
                   underline="hover"
                   sx={{
                     "&:hover": {
+
                       textDecoration: "none",
                       textDecorationColor: "none",
+
                     },
                   }}
                 >
@@ -251,8 +253,10 @@ export default function PrimarySearchAppBar() {
                   underline="hover"
                   sx={{
                     "&:hover": {
+
                       textDecoration: "none",
                       textDecorationColor: "none",
+
                     },
                   }}
                 >
@@ -269,8 +273,10 @@ export default function PrimarySearchAppBar() {
                   underline="hover"
                   sx={{
                     "&:hover": {
+
                       textDecoration: "none",
                       textDecorationColor: "none",
+
                     },
                   }}
                 >
@@ -287,8 +293,10 @@ export default function PrimarySearchAppBar() {
                   underline="hover"
                   sx={{
                     "&:hover": {
+
                       textDecoration: "none",
                       textDecorationColor: "none",
+
                     },
                   }}
                 >
@@ -305,15 +313,19 @@ export default function PrimarySearchAppBar() {
                   underline="hover"
                   sx={{
                     "&:hover": {
+
                       textDecoration: "none",
                       textDecorationColor: "none",
+
                     },
                   }}
                 >
                   <Typography
                     style={{ color: "white", textDecoration: "none" }}
                   >
-                    Bookmark
+
+                    My List
+
                   </Typography>
                 </Link>
               </MenuItem>
