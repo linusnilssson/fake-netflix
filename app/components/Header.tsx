@@ -1,23 +1,28 @@
 "use client";
+import { PlayArrow } from "@mui/icons-material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import AppBar from "@mui/material/AppBar";
-import Badge from "@mui/material/Badge";
-import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import Link from "@mui/material/Link";
-import MenuItem from "@mui/material/MenuItem";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import * as React from "react";
-import SearchBar from "./SearchBar"; // Importera den nya sökfältet-komponenten här
-
-// Din movies.json-data
-import { Menu } from "@mui/material";
+import {
+  AppBar,
+  Badge,
+  Box,
+  Card,
+  CardActionArea,
+  CardMedia,
+  IconButton,
+  Link,
+  Menu,
+  MenuItem,
+  Toolbar,
+  Typography,
+} from "@mui/material";
+import { useState } from "react";
 import movies from "../../data/movies.json";
+import BookmarkButton from "./BookmarkButton";
+import SearchBar from "./SearchBar";
 
 interface Movie {
   id: number;
@@ -25,15 +30,19 @@ interface Movie {
   year: number;
   genre: string;
   thumbnail: string;
+  slug: string;
 }
 
 export default function PrimarySearchAppBar() {
-  const [searchResults, setSearchResults] = React.useState<Movie[]>([]);
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [searchResults, setSearchResults] = useState<Movie[]>([]);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
-    React.useState<null | HTMLElement>(null);
-  const [isSecondMobileMenuOpen, setSecondMobileMenuOpen] =
-    React.useState(false);
+    useState<null | HTMLElement>(null);
+  const [isSecondMobileMenuOpen, setSecondMobileMenuOpen] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<{
+    id: number;
+    listName: string;
+  } | null>(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -54,12 +63,21 @@ export default function PrimarySearchAppBar() {
   const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
+
   const handleSecondMobileMenuClose = () => {
     setSecondMobileMenuOpen(false);
   };
 
   const handleSecondMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setSecondMobileMenuOpen(true);
+  };
+
+  const handleMouseEnter = (id: number, listName: string) => {
+    setHoveredIndex({ id, listName });
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
   };
 
   const menuId = "primary-search-account-menu";
@@ -103,9 +121,7 @@ export default function PrimarySearchAppBar() {
     >
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
+          <MailIcon />
         </IconButton>
         <p>Messages</p>
       </MenuItem>
@@ -115,9 +131,7 @@ export default function PrimarySearchAppBar() {
           aria-label="show 17 new notifications"
           color="inherit"
         >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
+          <NotificationsIcon />
         </IconButton>
         <p>Notifications</p>
       </MenuItem>
@@ -135,6 +149,7 @@ export default function PrimarySearchAppBar() {
       </MenuItem>
     </Menu>
   );
+
   const secondMobileMenuId = "secondary-search-account-menu-mobile";
   const renderSecondMobileMenu = (
     <Menu
@@ -328,19 +343,79 @@ export default function PrimarySearchAppBar() {
       </AppBar>
       {renderMobileMenu}
       {renderMenu}
-      {renderMenu}
       {renderSecondMobileMenu}
 
-      {/* Visar sökresultaten här */}
-      <Box>
-        {searchResults.map((result) => (
-          <div key={result.id}>
-            <img src={result.thumbnail} alt={result.title} />
-            <Typography>{result.title}</Typography>
-            <Typography>{result.year}</Typography>
-            <Typography>{result.genre}</Typography>
-          </div>
-        ))}
+      {/* Visa sökresultaten här */}
+      <Box sx={{ backgroundColor: "#000000", p: 2 }}>
+        {/* <Typography
+          variant="h4"
+          sx={{ color: "white", marginBottom: "2rem", marginTop: "2rem" }}
+        >
+          Based on your search...
+        </Typography> */}
+        <Box
+          sx={{
+            position: "relative",
+            display: "flex",
+            alignItems: "center",
+            overflowX: "auto",
+            marginBottom: "2rem",
+            gap: 2,
+            scrollbarWidth: "none",
+            "::-webkit-scrollbar": {
+              display: "none",
+            },
+          }}
+        >
+          {searchResults.map((result) => (
+            <Link key={result.id} href={`/movie/${result.slug}`}>
+              <Card
+                key={result.id}
+                onMouseEnter={() => handleMouseEnter(result.id, "search")}
+                onMouseLeave={handleMouseLeave}
+                sx={{ position: "relative" }}
+              >
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    src={result.thumbnail}
+                    alt={result.title}
+                    loading="lazy"
+                    sx={{ height: 182, width: 342, objectFit: "cover" }}
+                  />
+                  {hoveredIndex &&
+                    hoveredIndex.id === result.id &&
+                    hoveredIndex.listName === "search" && (
+                      <Box
+                        sx={{
+                          position: "absolute",
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          display: "flex",
+                          justifyContent: "space-between",
+                          padding: "8px",
+                          background:
+                            "linear-gradient(transparent, rgba(0, 0, 0, 0.7))",
+                          transition: "opacity 0.3s",
+                        }}
+                      >
+                        <IconButton
+                          color="primary"
+                          onClick={() => {
+                            // Hantera play-knappens klick
+                          }}
+                        >
+                          <PlayArrow sx={{ color: "white" }} />
+                        </IconButton>
+                        <BookmarkButton slug={result.slug} />
+                      </Box>
+                    )}
+                </CardActionArea>
+              </Card>
+            </Link>
+          ))}
+        </Box>
       </Box>
     </Box>
   );
