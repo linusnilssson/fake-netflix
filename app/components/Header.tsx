@@ -4,61 +4,31 @@ import MailIcon from "@mui/icons-material/Mail";
 import MenuIcon from "@mui/icons-material/Menu";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import NotificationsIcon from "@mui/icons-material/Notifications";
-import SearchIcon from "@mui/icons-material/Search";
 import AppBar from "@mui/material/AppBar";
 import Badge from "@mui/material/Badge";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
-import InputBase from "@mui/material/InputBase";
 import Link from "@mui/material/Link";
-import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { alpha, styled } from "@mui/material/styles";
 import * as React from "react";
+import SearchBar from "./SearchBar"; // Importera den nya sökfältet-komponenten här
 
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(3),
-    width: "auto",
-  },
-}));
+// Din movies.json-data
+import { Menu } from "@mui/material";
+import movies from "../../data/movies.json";
 
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "20ch",
-    },
-  },
-}));
+interface Movie {
+  id: number;
+  title: string;
+  year: number;
+  genre: string;
+  thumbnail: string;
+}
 
 export default function PrimarySearchAppBar() {
+  const [searchResults, setSearchResults] = React.useState<Movie[]>([]);
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
@@ -184,6 +154,14 @@ export default function PrimarySearchAppBar() {
     </Menu>
   );
 
+  // Funktion för att söka i filmer baserat på sökterm
+  const handleSearch = (searchTerm: string) => {
+    const results = movies.filter((movie) =>
+      movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setSearchResults(results);
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ backgroundColor: "black" }}>
@@ -196,7 +174,6 @@ export default function PrimarySearchAppBar() {
             onClick={handleSecondMobileMenuOpen}
             color="inherit"
           >
-            {/* Hamburger */}
             <MenuIcon />
           </IconButton>
           <Typography
@@ -205,21 +182,14 @@ export default function PrimarySearchAppBar() {
             component="div"
             sx={{
               display: { xs: "none", sm: "block" },
-              color: "red", // This is the color of the text XDANI
-              fontSize: "2rem", // This is the size of the text X DANI
+              color: "red",
+              fontSize: "2rem",
             }}
           >
             X-DANI
           </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
+          {/* Använd den nya sökfältet-komponenten här */}
+          <SearchBar onSearch={handleSearch} />
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
@@ -233,10 +203,8 @@ export default function PrimarySearchAppBar() {
                   underline="hover"
                   sx={{
                     "&:hover": {
-
                       textDecoration: "none",
                       textDecorationColor: "none",
-
                     },
                   }}
                 >
@@ -253,10 +221,8 @@ export default function PrimarySearchAppBar() {
                   underline="hover"
                   sx={{
                     "&:hover": {
-
                       textDecoration: "none",
                       textDecorationColor: "none",
-
                     },
                   }}
                 >
@@ -273,10 +239,8 @@ export default function PrimarySearchAppBar() {
                   underline="hover"
                   sx={{
                     "&:hover": {
-
                       textDecoration: "none",
                       textDecorationColor: "none",
-
                     },
                   }}
                 >
@@ -293,10 +257,8 @@ export default function PrimarySearchAppBar() {
                   underline="hover"
                   sx={{
                     "&:hover": {
-
                       textDecoration: "none",
                       textDecorationColor: "none",
-
                     },
                   }}
                 >
@@ -313,19 +275,15 @@ export default function PrimarySearchAppBar() {
                   underline="hover"
                   sx={{
                     "&:hover": {
-
                       textDecoration: "none",
                       textDecorationColor: "none",
-
                     },
                   }}
                 >
                   <Typography
                     style={{ color: "white", textDecoration: "none" }}
                   >
-
                     My List
-
                   </Typography>
                 </Link>
               </MenuItem>
@@ -363,7 +321,6 @@ export default function PrimarySearchAppBar() {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              {/* denna är de tre prickarna */}
               <MoreIcon />
             </IconButton>
           </Box>
@@ -373,6 +330,18 @@ export default function PrimarySearchAppBar() {
       {renderMenu}
       {renderMenu}
       {renderSecondMobileMenu}
+
+      {/* Visar sökresultaten här */}
+      <Box>
+        {searchResults.map((result) => (
+          <div key={result.id}>
+            <img src={result.thumbnail} alt={result.title} />
+            <Typography>{result.title}</Typography>
+            <Typography>{result.year}</Typography>
+            <Typography>{result.genre}</Typography>
+          </div>
+        ))}
+      </Box>
     </Box>
   );
 }
