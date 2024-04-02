@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "title": "The Shawshank Redemption",
     "year": 1994,
     "rating": "R",
@@ -11,6 +12,7 @@
     "background": "https://wallpapercave.com/wp/wp2014285.jpg"
   },
   {
+    "id": 2,
     "title": "The Godfather",
     "year": 1972,
     "rating": "R",
@@ -22,6 +24,7 @@
     "background": "https://i.redd.it/9fa42dq3k0v71.jpg"
   },
   {
+    "id": 3,
     "title": "The Godfather: Part II",
     "year": 1974,
     "rating": "R",
@@ -34,6 +37,7 @@
     "background": "https://miro.medium.com/v2/resize:fit:3840/0*w-lSrMluOuMYLrMB"
   },
   {
+    "id": 4,
     "title": "The Dark Knight",
     "year": 2008,
     "rating": "PG-13",
@@ -45,6 +49,7 @@
     "background": "https://images7.alphacoders.com/108/1080692.jpg"
   },
   {
+    "id": 5,
     "title": "12 Angry Men",
     "year": 1957,
     "rating": "Not Rated",
@@ -56,6 +61,7 @@
     "background": "https://images6.alphacoders.com/645/thumb-1920-645008.png"
   },
   {
+    "id": 6,
     "title": "Schindler's List",
     "year": 1993,
     "rating": "R",
@@ -67,6 +73,7 @@
     "background": "https://wallpapercave.com/wp/wp3849098.jpg"
   },
   {
+    "id": 7,
     "title": "The Lord of the Rings: The Return of the King",
     "year": 2003,
     "rating": "PG-13",
@@ -79,6 +86,7 @@
     "background": "https://images4.alphacoders.com/118/118904.jpg"
   },
   {
+    "id": 8,
     "title": "Pulp Fiction",
     "year": 1994,
     "rating": "R",
@@ -90,6 +98,7 @@
     "background": "https://images2.alphacoders.com/674/674137.jpg"
   },
   {
+    "id": 9,
     "title": "The Good, the Bad and the Ugly",
     "year": 1966,
     "rating": "Not Rated",
@@ -101,6 +110,7 @@
     "background": "https://wallpapercave.com/wp/wp2273148.jpg"
   },
   {
+    "id": 10,
     "title": "Fight Club",
     "year": 1999,
     "rating": "R",
@@ -113,6 +123,7 @@
      "background": "https://static1.thegamerimages.com/wordpress/wp-content/uploads/2018/05/Fight-Club-Drunk-Fight.jpg"
   },
   {
+    "id": 11,
     "title": "Forrest Gump",
     "year": 1994,
     "rating": "PG-13",
@@ -124,6 +135,7 @@
     "background": "https://wallpapers.com/images/hd/young-forrest-gump-running-llt6drsclev1wk93.jpg"
   },
   {
+    "id": 12,
     "title": "Inception",
     "year": 2010,
     "rating": "PG-13",
@@ -135,6 +147,7 @@
     "background": "https://images3.alphacoders.com/876/87675.jpg"
   },
   {
+    "id": 13,
     "title": "The Lord of the Rings: The Fellowship of the Ring",
     "year": 2001,
     "rating": "PG-13",
@@ -146,6 +159,7 @@
     "background": "https://wallpapers.com/images/hd/lotr-1920-x-1080-background-16sjupnp2erhapz9.jpg"
   },
   {
+    "id": 14,
     "title": "Star Wars: Episode V - The Empire Strikes Back",
     "year": 1980,
     "rating": "PG",
@@ -158,6 +172,7 @@
     "background": "https://images.alphacoders.com/584/584825.jpg"
   },
   {
+    "id": 15,
     "title": "The Matrix",
     "year": 1999,
     "rating": "R",
@@ -169,6 +184,7 @@
     "background": "https://cdn.theasc.com/The-Matrix-Resurrections-Feature.jpeg"
   },
   {
+    "id": 16,
     "title": "Goodfellas",
     "year": 1990,
     "rating": "R",
@@ -180,6 +196,7 @@
     "background": "https://images3.alphacoders.com/648/648989.png"
   },
   {
+    "id": 17,
     "title": "One Flew Over the Cuckoo's Nest",
     "year": 1975,
     "rating": "R",
@@ -191,6 +208,7 @@
     "background": "https://m.media-amazon.com/images/M/MV5BMjEwMTUwMTYzNV5BMl5BanBnXkFtZTcwNTY5NDk3Mw@@._V1_.jpg"
   },
   {
+    "id": 18,
     "title": "Seven Samurai",
     "year": 1954,
     "rating": "Not Rated",
@@ -202,6 +220,7 @@
     "background": "https://i.redd.it/sbplz8gpq6i71.jpg"
   },
   {
+    "id": 19,
     "title": "The Silence of the Lambs",
     "year": 1991,
     "rating": "R",
@@ -213,6 +232,7 @@
     "background": "https://images5.alphacoders.com/507/507453.jpg"
   },
   {
+    "id": 20,
     "title": "Casablanca",
     "year": 1942,
     "rating": "PG",
@@ -225,6 +245,7 @@
     "background": "https://wallpapers.com/images/hd/casablanca-movie-characters-0qa4748irs8a58ae.jpg"
   },
   {
+    "id": 21,
     "title": "The Lord of the Rings: The Two Towers",
     "year": 2002,
     "rating": "PG-13",
@@ -236,6 +257,7 @@
     "background": "https://images.alphacoders.com/151/151033.jpg"
   },
   {
+    "id": 22,
     "title": "Indiana Jones and the Raiders of the Lost Ark",
     "year": 1981,
     "rating": "PG",
@@ -247,6 +269,7 @@
     "background": "https://www.syfy.com/sites/syfy/files/2021/06/gettyimages-1195887234.jpg"
   },
   {
+    "id": 23,
     "title": "City of God",
     "year": 2002,
     "rating": "R",
@@ -262,6 +285,7 @@
     "background": "https://assets.mubicdn.net/images/film/160/image-w1280.jpg?1571397897"
   },
   {
+    "id": 24,
     "title": "Once Upon a Time in the West",
     "year": 1968,
     "rating": "PG-13",
@@ -273,6 +297,7 @@
     "background": "https://lwlies.com/wp-content/uploads/2018/03/once_upon_a_time.jpg"
   },
   {
+    "id": 25,
     "title": "The Departed",
     "year": 2006,
     "rating": "R",
@@ -284,6 +309,7 @@
     "background": "https://wallpapercave.com/wp/wp2329836.jpg"
   },
   {
+    "id": 26,
     "title": "Rear Window",
     "year": 1954,
     "rating": "PG",
@@ -295,6 +321,7 @@
     "background": "https://atlasofplaces.com/atlas-of-places-images/_scaled/ATLAS-OF-PLACES-ALFRED-HITCHCOCK-REAR-WINDOW-IMG-1.jpg"
   },
   {
+    "id": 27,
     "title": "Gladiator",
     "year": 2000,
     "rating": "R",
@@ -306,6 +333,7 @@
     "background": "https://scarfandgoggles.files.wordpress.com/2017/04/gladiator-movie-russell-crowe-full-top-hd-wallpapers-free.jpg"
   },
   {
+    "id": 28,
     "title": "Terminator 2: Judgment Day",
     "year": 1991,
     "rating": "R",
@@ -318,6 +346,7 @@
     "background": "https://wallpapers.com/images/hd/arnold-schwarzenegger-background-fhdrrss0a3ygrndo.jpg"
   },
   {
+    "id": 29,
     "title": "Whiplash",
     "year": 2014,
     "rating": "R",
@@ -329,6 +358,7 @@
     "background": "https://images3.alphacoders.com/676/676238.jpg"
   },
   {
+    "id": 30,
     "title": "Psycho",
     "year": 1960,
     "rating": "R",
