@@ -75,6 +75,18 @@ export default function MovieBanner() {
 
             <Box>
               <Typography
+                sx={{
+                  color: "white",
+                  fontSize: "1.2rem",
+                  fontWeight: 400,
+                  marginTop: "1rem",
+                }}
+              >
+                {bannerMovie.year} | Rating: {bannerMovie.rating}
+              </Typography>
+            </Box>
+            <Box>
+              <Typography
                 variant="body2"
                 sx={{ color: "white", fontSize: "1rem", paddingTop: "1rem" }}
               >

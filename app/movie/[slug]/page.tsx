@@ -45,8 +45,8 @@ export default function MoviePage({ params }: PageProps) {
                 fontWeight: "600",
                 fontSize: {
                   xs: "2.5rem",
-                  sm: "2.5rem", 
-                  md: "3rem", 
+                  sm: "2.5rem",
+                  md: "3rem",
                 },
               }}
             >
@@ -58,6 +58,17 @@ export default function MoviePage({ params }: PageProps) {
               sx={{ color: "white", fontStyle: "italic" }}
             >
               {movie.genre}
+            </Typography>
+          </Box>
+          <Box>
+            <Typography
+              sx={{
+                color: "white",
+                fontSize: "1.1rem",
+                fontWeight: 400,
+              }}
+            >
+              {movie.year} | Rating: {movie.rating}
             </Typography>
           </Box>
           <Box

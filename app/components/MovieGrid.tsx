@@ -180,14 +180,16 @@ export default function MovieGrid() {
                         transition: "opacity 0.3s",
                       }}
                     >
-                      <IconButton
-                        color="primary"
-                        onClick={() => {
-                          // Handle play button click
+                      <Typography
+                        sx={{
+                          color: "white",
+                          fontSize: "1rem",
+                          fontWeight: 300,
+                          padding: "8px",
                         }}
                       >
-                        <PlayArrow sx={{ color: "white" }} />
-                      </IconButton>
+                        {movie.year} | Rating: {movie.rating}
+                      </Typography>
                       <BookmarkButton slug={movie.slug} />
                     </Box>
                   )}
@@ -285,14 +287,16 @@ export default function MovieGrid() {
                         transition: "opacity 0.3s",
                       }}
                     >
-                      <IconButton
-                        color="primary"
-                        onClick={() => {
-                          // Handle play button click
+                      <Typography
+                        sx={{
+                          color: "white",
+                          fontSize: "1rem",
+                          fontWeight: 300,
+                          padding: "8px",
                         }}
                       >
-                        <PlayArrow sx={{ color: "white" }} />
-                      </IconButton>
+                        {movie.year} | Rating: {movie.rating}
+                      </Typography>
                       <BookmarkButton slug={movie.slug} />
                     </Box>
                   )}
@@ -394,14 +398,16 @@ export default function MovieGrid() {
                         transition: "opacity 0.3s",
                       }}
                     >
-                      <IconButton
-                        color="primary"
-                        onClick={() => {
-                          // Handle play button click
+                      <Typography
+                        sx={{
+                          color: "white",
+                          fontSize: "1rem",
+                          fontWeight: 300,
+                          padding: "8px",
                         }}
                       >
-                        <PlayArrow sx={{ color: "white" }} />
-                      </IconButton>
+                        {movie.year} | Rating: {movie.rating}
+                      </Typography>
                       <BookmarkButton slug={movie.slug} />
                     </Box>
                   )}
@@ -500,15 +506,16 @@ export default function MovieGrid() {
                         transition: "opacity 0.3s",
                       }}
                     >
-                      <IconButton
-                        color="primary"
-                        onClick={() => {
-                          // Handle play button click
+                      <Typography
+                        sx={{
+                          color: "white",
+                          fontSize: "1rem",
+                          fontWeight: 300,
+                          padding: "8px",
                         }}
                       >
-                        <PlayArrow sx={{ color: "white" }} />
-                      </IconButton>
-                      <BookmarkButton slug={movie.slug} />
+                        {movie.year} | Rating: {movie.rating}
+                      </Typography>
                     </Box>
                   )}
               </CardActionArea>
