@@ -347,12 +347,6 @@ export default function PrimarySearchAppBar() {
 
       {/* Visa sökresultaten här */}
       <Box sx={{ backgroundColor: "#000000", p: 2 }}>
-        {/* <Typography
-          variant="h4"
-          sx={{ color: "white", marginBottom: "2rem", marginTop: "2rem" }}
-        >
-          Based on your search...
-        </Typography> */}
         <Box
           sx={{
             position: "relative",
