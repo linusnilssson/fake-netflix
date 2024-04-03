@@ -1,6 +1,5 @@
 "use client";
 
-import { PlayArrow } from "@mui/icons-material";
 import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import {
@@ -156,13 +155,13 @@ export default function MovieGrid() {
               sx={{ position: "relative" }}
             >
               <CardActionArea>
-                <CardMedia
-                  component="img"
-                  src={movie.thumbnail}
-                  alt={movie.title}
-                  loading="lazy"
-                  sx={{ height: 182, width: 342, objectFit: "cover" }}
-                />
+              <CardMedia
+              component="img"
+              src={movie.thumbnail}
+              alt={movie.title}
+              loading="lazy"
+              sx={{ height: 300, width: 240, objectFit: "fill" }}
+              />
                 {hoveredIndex &&
                   hoveredIndex.id === movie.id &&
                   hoveredIndex.listName === "trending" && (
@@ -263,13 +262,13 @@ export default function MovieGrid() {
               sx={{ position: "relative" }}
             >
               <CardActionArea>
-                <CardMedia
-                  component="img"
-                  src={movie.thumbnail}
-                  alt={movie.title}
-                  loading="lazy"
-                  sx={{ height: 182, width: 342, objectFit: "cover" }}
-                />
+              <CardMedia
+              component="img"
+              src={movie.thumbnail}
+              alt={movie.title}
+              loading="lazy"
+              sx={{ height: 300, width: 240, objectFit: "fill" }}
+              />
                 {hoveredIndex &&
                   hoveredIndex.id === movie.id &&
                   hoveredIndex.listName === "recommended" && (
@@ -374,13 +373,13 @@ export default function MovieGrid() {
               sx={{ position: "relative" }}
             >
               <CardActionArea>
-                <CardMedia
-                  component="img"
-                  src={movie.thumbnail}
-                  alt={movie.title}
-                  loading="lazy"
-                  sx={{ height: 182, width: 342, objectFit: "cover" }}
-                />
+              <CardMedia
+              component="img"
+              src={movie.thumbnail}
+              alt={movie.title}
+              loading="lazy"
+              sx={{ height: 300, width: 240, objectFit: "fill" }}
+              />
                 {hoveredIndex &&
                   hoveredIndex.id === movie.id &&
                   hoveredIndex.listName === "genre" && (
@@ -482,13 +481,13 @@ export default function MovieGrid() {
               sx={{ position: "relative" }}
             >
               <CardActionArea>
-                <CardMedia
-                  component="img"
-                  src={movie.thumbnail}
-                  alt={movie.title}
-                  loading="lazy"
-                  sx={{ height: 182, width: 342, objectFit: "cover" }}
-                />
+              <CardMedia
+              component="img"
+              src={movie.thumbnail}
+              alt={movie.title}
+              loading="lazy"
+              sx={{ height: 300, width: 240, objectFit: "fill" }}
+              />
                 {hoveredIndex &&
                   hoveredIndex.id === movie.id &&
                   hoveredIndex.listName === "allMovies" && (

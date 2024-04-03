@@ -369,5 +369,113 @@
     "isTrending": true,
     "slug": "psycho",
     "background": "https://wallpapercave.com/wp/wp4114504.png"
+  },
+  {
+    "id": 31,
+    "title": "The Fighter",
+    "year": 2024,
+    "rating": "R",
+    "actors": ["Hrithik Roshan", "Deepika Padukone", "Anil Kapoor"],
+    "genre": "Action, Thriller",
+    "synopsis": "Top IAF aviators come together in the face of imminent danger, to form Air Dragons. Fighter unfolds their camaraderie, brotherhood and battles, internal and external.",
+    "thumbnail": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/fighter-et00304730-1704191105.jpg",
+    "slug": "the-fighter",
+    "comingSoon": true
+  },
+  {
+    "id": 32,
+    "title": "Yodha",
+    "year": 2024,
+    "rating": "R",
+    "actors": ["Sidharth Malhotra", "Raashi Khanna", "Disha Patani"],
+    "genre": "Action, Thriller",
+    "synopsis": "After failing at an important mission - years later, the system is shocked to find Arun on board in very mysterious circumstances on a hijacked flight. All evidence points towards Arun being on a mission for revenge against the system that snatched everything away from him.",
+    "thumbnail": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/yodha-et00318073-1710241050.jpg",
+    "slug": "yodha",
+    "comingSoon": true
+  },
+  {
+    "id": 33,
+    "title": "The Goat Life",
+    "year": 2024,
+    "rating": "R",
+    "actors": ["Prithviraj Sukumaran", "Amala Paul", "Jimmy Jean-Louis"],
+    "genre": "Adventure, Drama",
+    "synopsis": "A man in the early 1990s travels from the lush green lands of his hometown to a desert country for livelihood. What awaits him and his battle using only hope & faith is a true story stranger than any fiction.",
+    "thumbnail": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/aadujeevitham--the-goat-life-et00038685-1709703895.jpg",
+    "slug": "the-goat-life",
+    "comingSoon": true
+  },
+  {
+    "id": 34,
+    "title": "Arthur The King",
+    "year": 2024,
+    "rating": "R",
+    "actors": ["Mark Wahlberg", "Simu Liu", "Nathalie Emmanuel"],
+    "genre": "Adventure, Drama",
+    "synopsis": "An adventure racer adopts a stray dog named Arthur to join him in an epic endurance race.",
+    "thumbnail": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/arthur-the-king-et00389714-1709551457.jpg",
+    "slug": "arthur-the-king",
+    "comingSoon": true
+  },
+  {
+    "id": 35,
+    "title": "Crew",
+    "year": 2024,
+    "rating": "R",
+    "actors": ["Tabu", "Kareena Kapoor Khan", "Kriti Sanon"],
+    "genre": "Comedy, Thriller",
+    "synopsis": "Three ordinary air hostesses from Mumbai embark on a journey to pursue their dreams but find themselves caught up in unexpected misfortunes.",
+    "thumbnail": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/crew-2024-et00344265-1709532971.jpg",
+    "slug": "crew",
+    "comingSoon": true
+  },
+  {
+    "id": 36,
+    "title": "Madgaon Express",
+    "year": 2024,
+    "rating": "R",
+    "actors": ["Pratik Gandhi", "Divyendu Sharma", "Avinash Tiwary"],
+    "genre": "Comedy, Drama",
+    "synopsis": "Three childhood friends embark on a trip to Goa that goes completely off-track when they wake up in a hotel room and find cocaine that belongs to a don named Mendoza.",
+    "thumbnail": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/madgaon-express-et00341317-1711080867.jpg",
+    "slug": "madgaon-express",
+    "comingSoon": true
+  },
+  {
+    "id": 37,
+    "title": "Article 370",
+    "year": 2024,
+    "rating": "R",
+    "actors": ["Yami Gautam", "Priyamani", "Arun Govil"],
+    "genre": "Drama, Political",
+    "synopsis": "In the aftermath of the 2016 Kashmir unrest, a young local field agent, Zooni Haksar, is picked out by Rajeshwari Swaminathan from the Prime Minister`s Office for a top secret mission. Their aim? Cracking down on terrorism and putting an end to the billion dollar conflict economy in the valley, by doing the absolute impossible - Abrogating the notorious Article 370. That too, without spilling a single drop of innocent blood.",
+    "thumbnail": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/article-370-et00384444-1708669471.jpg",
+    "slug": "article-370",
+    "comingSoon": true
+  },
+  {
+    "id": 38,
+    "title": "The First Omen",
+    "year": 2024,
+    "rating": "R",
+    "actors": ["Nell Tiger Free", "Tawkeef Barhom", "Ralph Ineson"],
+    "genre": "Horror, Thriller",
+    "synopsis": "When a young American woman is sent to Rome to begin a life of service to the church, she encounters a darkness that causes her to question her faith and uncovers a terrifying conspiracy that hopes to bring about the birth of evil incarnate.",
+    "thumbnail": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/the-first-omen-et00382581-1710244107.jpg",
+    "slug": "the-first-omen",
+    "comingSoon": true
+  },
+  {
+    "id": 39,
+    "title": "Good Luck",
+    "year": 2024,
+    "rating": "R",
+    "actors": ["Brijendra Kala", "Malti Mathur", "Manisha Chitrode"],
+    "genre": "Comedy, Drama, Social",
+    "synopsis": "Angoori, a 75-year-old woman throws her family into comedic chaos when she unexpectedly becomes pregnant.",
+    "thumbnail": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/goodluck-et00389535-1709538794.jpgm",
+    "slug": "good-luck",
+    "comingSoon": true
   }
 ]
