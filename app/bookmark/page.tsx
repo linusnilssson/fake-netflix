@@ -1,5 +1,5 @@
 "use client";
-import { CheckRounded, PlayArrow } from "@mui/icons-material";
+import { CheckRounded } from "@mui/icons-material";
 import {
   Box,
   Card,
@@ -34,7 +34,7 @@ export default function BookmarkPage() {
         sx={{
           display: "grid",
           gap: 2,
-          gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
         }}
       >
         {bookmarkedMovies.map((movie) => (
@@ -46,7 +46,7 @@ export default function BookmarkPage() {
                   src={movie.thumbnail}
                   alt={movie.title}
                   loading="lazy"
-                  sx={{ height: 300, objectFit: "cover" }}
+                  sx={{ height: 182, width: 342, objectFit: "cover" }}
                 />
               </Link>
               <Box
@@ -67,14 +67,16 @@ export default function BookmarkPage() {
                   },
                 }}
               >
-                <IconButton
-                  color="primary"
-                  onClick={() => {
-                    // Handle play button click
+                <Typography
+                  sx={{
+                    color: "white",
+                    fontSize: "1rem",
+                    fontWeight: 300,
+                    padding: "8px",
                   }}
                 >
-                  <PlayArrow sx={{ color: "white" }} />
-                </IconButton>
+                  {movie.year} | Rating: {movie.rating}
+                </Typography>
                 <IconButton
                   color="primary"
                   onClick={() => handleRemoveBookmark(movie.slug)}
