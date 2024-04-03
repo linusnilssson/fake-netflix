@@ -201,7 +201,9 @@ export default function PrimarySearchAppBar() {
               fontSize: "2rem",
             }}
           >
+            <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
             X-DANI
+            </Link>
           </Typography>
           {/* Använd den nya sökfältet-komponenten här */}
           <SearchBar onSearch={handleSearch} />
