@@ -21,7 +21,11 @@ interface HoveredMovie {
   listName: string;
 }
 
-export default function MovieGrid() {
+interface MovieGridProps {
+  isSearching: boolean;
+}
+
+export default function MovieGrid({ isSearching }: MovieGridProps) {
   const [recommendedScrollX, setRecommendedScrollX] = useState(0);
   const [trendingScrollX, setTrendingScrollX] = useState(0);
   const [allMoviesScrollX, setAllMoviesScrollX] = useState(0);
@@ -123,6 +127,7 @@ export default function MovieGrid() {
 
   return (
     <Box sx={{ backgroundColor: "#000000", p: 2 }}>
+
       <MovieBanner />
       <Typography
         variant="h4"
@@ -212,25 +217,28 @@ export default function MovieGrid() {
               backgroundColor: "rgba(0, 0, 0, 0.7)",
             },
           }}
+
         >
-          <ArrowBackIosRoundedIcon sx={{ color: "white" }} />
-        </IconButton>
-        {/* Right arrow for trending movies */}
-        <IconButton
-          color="primary"
-          onClick={() => handleTrendingScroll(200)}
+          Trending movies
+        </Typography>
+      )}
+      {!isSearching && (
+        <Box
+          ref={trendingListRef}
           sx={{
-            position: "sticky",
-            right: 0,
-            top: "50%",
-            transform: "translateY(-50%)",
-            zIndex: 1,
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            "&:hover": {
-              backgroundColor: "rgba(0, 0, 0, 0.7)",
+            position: "relative",
+            display: "flex",
+            alignItems: "center",
+            overflowX: "auto",
+            marginBottom: "2rem",
+            gap: 2,
+            scrollbarWidth: "none",
+            "::-webkit-scrollbar": {
+              display: "none",
             },
           }}
         >
+
           <ArrowForwardIosRoundedIcon sx={{ color: "white" }} />
         </IconButton>
       </Box>
@@ -287,57 +295,99 @@ export default function MovieGrid() {
                       }}
                     >
                       <Typography
+
                         sx={{
-                          color: "white",
-                          fontSize: "1rem",
-                          fontWeight: 300,
+                          position: "absolute",
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          display: "flex",
+                          justifyContent: "space-between",
                           padding: "8px",
+                          background:
+                            "linear-gradient(transparent, rgba(0, 0, 0, 0.7))",
+                          transition: "opacity 0.3s",
                         }}
                       >
-                        {movie.year} | Rating: {movie.rating}
-                      </Typography>
-                      <BookmarkButton slug={movie.slug} />
-                    </Box>
-                  )}
-              </CardActionArea>
-            </Card>
-          </Link>
-        ))}
-        {/* Left arrow for trending movies */}
-        <IconButton
-          color="primary"
-          disabled={recommendedScrollX === 0}
-          onClick={() => handleRecommendedScroll(-200)}
+                        <Typography
+                          sx={{
+                            color: "white",
+                            fontSize: "1rem",
+                            fontWeight: 300,
+                            padding: "8px",
+                          }}
+                        >
+                          {movie.year} | Rating: {movie.rating}
+                        </Typography>
+                        <BookmarkButton slug={movie.slug} />
+                      </Box>
+                    )}
+                </CardActionArea>
+              </Card>
+            </Link>
+          ))}
+          {/* Left arrow for trending movies */}
+          <IconButton
+            color="primary"
+            disabled={trendingScrollX === 0}
+            onClick={() => handleTrendingScroll(-200)}
+            sx={{
+              position: "absolute",
+              left: 0,
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 1,
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              "&:hover": {
+                backgroundColor: "rgba(0, 0, 0, 0.7)",
+              },
+            }}
+          >
+            <ArrowBackIosRoundedIcon sx={{ color: "white" }} />
+          </IconButton>
+          {/* Right arrow for trending movies */}
+          <IconButton
+            color="primary"
+            onClick={() => handleTrendingScroll(200)}
+            sx={{
+              position: "sticky",
+              right: 0,
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 1,
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              "&:hover": {
+                backgroundColor: "rgba(0, 0, 0, 0.7)",
+              },
+            }}
+          >
+            <ArrowForwardIosRoundedIcon sx={{ color: "white" }} />
+          </IconButton>
+        </Box>
+      )}
+
+      {!isSearching && (
+        <Typography variant="h4" sx={{ color: "white", marginBottom: "2rem" }}>
+          Recommended movies
+        </Typography>
+      )}
+      {!isSearching && (
+        <Box
+          ref={recommendedListRef}
           sx={{
-            position: "absolute",
-            left: 0,
-            top: "50%",
-            transform: "translateY(-50%)",
-            zIndex: 1,
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            "&:hover": {
-              backgroundColor: "rgba(0, 0, 0, 0.7)",
+            position: "relative",
+            display: "flex",
+            alignItems: "center",
+            overflowX: "auto",
+            marginBottom: "2rem",
+            gap: 2,
+            scrollbarWidth: "none",
+            "::-webkit-scrollbar": {
+              display: "none",
             },
           }}
         >
-          <ArrowBackIosRoundedIcon sx={{ color: "white" }} />
-        </IconButton>
-        {/* Right arrow for trending movies */}
-        <IconButton
-          color="primary"
-          onClick={() => handleRecommendedScroll(200)}
-          sx={{
-            position: "sticky",
-            right: 0,
-            top: "50%",
-            transform: "translateY(-50%)",
-            zIndex: 1,
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            "&:hover": {
-              backgroundColor: "rgba(0, 0, 0, 0.7)",
-            },
-          }}
-        >
+
           <ArrowForwardIosRoundedIcon sx={{ color: "white" }} />
         </IconButton>
       </Box>
@@ -398,57 +448,103 @@ export default function MovieGrid() {
                       }}
                     >
                       <Typography
+
                         sx={{
-                          color: "white",
-                          fontSize: "1rem",
-                          fontWeight: 300,
+                          position: "absolute",
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          display: "flex",
+                          justifyContent: "space-between",
                           padding: "8px",
+                          background:
+                            "linear-gradient(transparent, rgba(0, 0, 0, 0.7))",
+                          transition: "opacity 0.3s",
                         }}
                       >
-                        {movie.year} | Rating: {movie.rating}
-                      </Typography>
-                      <BookmarkButton slug={movie.slug} />
-                    </Box>
-                  )}
-              </CardActionArea>
-            </Card>
-          </Link>
-        ))}
-        {/* Left arrow for genre movies */}
-        <IconButton
-          color="primary"
-          disabled={genreScrollX === 0}
-          onClick={() => handleGenreScroll(-200)}
+                        <Typography
+                          sx={{
+                            color: "white",
+                            fontSize: "1rem",
+                            fontWeight: 300,
+                            padding: "8px",
+                          }}
+                        >
+                          {movie.year} | Rating: {movie.rating}
+                        </Typography>
+                        <BookmarkButton slug={movie.slug} />
+                      </Box>
+                    )}
+                </CardActionArea>
+              </Card>
+            </Link>
+          ))}
+          {/* Left arrow for trending movies */}
+          <IconButton
+            color="primary"
+            disabled={recommendedScrollX === 0}
+            onClick={() => handleRecommendedScroll(-200)}
+            sx={{
+              position: "absolute",
+              left: 0,
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 1,
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              "&:hover": {
+                backgroundColor: "rgba(0, 0, 0, 0.7)",
+              },
+            }}
+          >
+            <ArrowBackIosRoundedIcon sx={{ color: "white" }} />
+          </IconButton>
+          {/* Right arrow for trending movies */}
+          <IconButton
+            color="primary"
+            onClick={() => handleRecommendedScroll(200)}
+            sx={{
+              position: "sticky",
+              right: 0,
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 1,
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              "&:hover": {
+                backgroundColor: "rgba(0, 0, 0, 0.7)",
+              },
+            }}
+          >
+            <ArrowForwardIosRoundedIcon sx={{ color: "white" }} />
+          </IconButton>
+        </Box>
+      )}
+
+      {!isSearching && (
+        <Typography
+          variant="h4"
+          sx={{ color: "white", marginBottom: "2rem", marginTop: "2rem" }}
+        >
+          Drama
+        </Typography>
+      )}
+
+      {!isSearching && (
+        <Box
+          ref={genreListRef}
           sx={{
-            position: "absolute",
-            left: 0,
-            top: "50%",
-            transform: "translateY(-50%)",
-            zIndex: 1,
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            "&:hover": {
-              backgroundColor: "rgba(0, 0, 0, 0.7)",
+            position: "relative",
+            display: "flex",
+            alignItems: "center",
+            overflowX: "auto",
+            marginBottom: "2rem",
+            gap: 2,
+            scrollbarWidth: "none",
+            "::-webkit-scrollbar": {
+              display: "none",
             },
           }}
         >
-          <ArrowBackIosRoundedIcon sx={{ color: "white" }} />
-        </IconButton>
-        {/* Right arrow for genre movies */}
-        <IconButton
-          color="primary"
-          onClick={() => handleGenreScroll(200)}
-          sx={{
-            position: "sticky",
-            right: 0,
-            top: "50%",
-            transform: "translateY(-50%)",
-            zIndex: 1,
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            "&:hover": {
-              backgroundColor: "rgba(0, 0, 0, 0.7)",
-            },
-          }}
-        >
+
           <ArrowForwardIosRoundedIcon sx={{ color: "white" }} />
         </IconButton>
       </Box>
@@ -506,59 +602,187 @@ export default function MovieGrid() {
                       }}
                     >
                       <Typography
+
                         sx={{
-                          color: "white",
-                          fontSize: "1rem",
-                          fontWeight: 300,
+                          position: "absolute",
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          display: "flex",
+                          justifyContent: "space-between",
                           padding: "8px",
+                          background:
+                            "linear-gradient(transparent, rgba(0, 0, 0, 0.7))",
+                          transition: "opacity 0.3s",
                         }}
                       >
-                        {movie.year} | Rating: {movie.rating}
-                      </Typography>
-                    </Box>
-                  )}
-              </CardActionArea>
-            </Card>
-          </Link>
-        ))}
-        {/* Left arrow for trending movies */}
-        <IconButton
-          color="primary"
-          disabled={allMoviesScrollX === 0}
-          onClick={() => handleAllMoviesScroll(-200)}
+                        <Typography
+                          sx={{
+                            color: "white",
+                            fontSize: "1rem",
+                            fontWeight: 300,
+                            padding: "8px",
+                          }}
+                        >
+                          {movie.year} | Rating: {movie.rating}
+                        </Typography>
+                        <BookmarkButton slug={movie.slug} />
+                      </Box>
+                    )}
+                </CardActionArea>
+              </Card>
+            </Link>
+          ))}
+          {/* Left arrow for genre movies */}
+          <IconButton
+            color="primary"
+            disabled={genreScrollX === 0}
+            onClick={() => handleGenreScroll(-200)}
+            sx={{
+              position: "absolute",
+              left: 0,
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 1,
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              "&:hover": {
+                backgroundColor: "rgba(0, 0, 0, 0.7)",
+              },
+            }}
+          >
+            <ArrowBackIosRoundedIcon sx={{ color: "white" }} />
+          </IconButton>
+          {/* Right arrow for genre movies */}
+          <IconButton
+            color="primary"
+            onClick={() => handleGenreScroll(200)}
+            sx={{
+              position: "sticky",
+              right: 0,
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 1,
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              "&:hover": {
+                backgroundColor: "rgba(0, 0, 0, 0.7)",
+              },
+            }}
+          >
+            <ArrowForwardIosRoundedIcon sx={{ color: "white" }} />
+          </IconButton>
+        </Box>
+      )}
+
+      {!isSearching && (
+        <Typography variant="h4" sx={{ color: "white", marginBottom: "2rem" }}>
+          All movies
+        </Typography>
+      )}
+      {!isSearching && (
+        <Box
+          ref={allMoviesListRef}
           sx={{
-            position: "absolute",
-            left: 0,
-            top: "50%",
-            transform: "translateY(-50%)",
-            zIndex: 1,
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            "&:hover": {
-              backgroundColor: "rgba(0, 0, 0, 0.7)",
+            position: "relative",
+            display: "flex",
+            alignItems: "center",
+            overflowX: "auto",
+            marginBottom: "2rem",
+            gap: 2,
+            scrollbarWidth: "none",
+            "::-webkit-scrollbar": {
+              display: "none",
             },
           }}
         >
-          <ArrowBackIosRoundedIcon sx={{ color: "white" }} />
-        </IconButton>
-        {/* Right arrow for trending movies */}
-        <IconButton
-          color="primary"
-          onClick={() => handleAllMoviesScroll(200)}
-          sx={{
-            position: "sticky",
-            right: 0,
-            top: "50%",
-            transform: "translateY(-50%)",
-            zIndex: 1,
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            "&:hover": {
-              backgroundColor: "rgba(0, 0, 0, 0.7)",
-            },
-          }}
-        >
-          <ArrowForwardIosRoundedIcon sx={{ color: "white" }} />
-        </IconButton>
-      </Box>
+          {/* All movies */}
+          {movies.map((movie, index) => (
+            <Link key={movie.id} href={`/movie/${movie.slug}`} passHref>
+              <Card
+                key={movie.id}
+                onMouseEnter={() => handleMouseEnter(movie.id, "allMovies")}
+                onMouseLeave={handleMouseLeave}
+                sx={{ position: "relative" }}
+              >
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    src={movie.thumbnail}
+                    alt={movie.title}
+                    loading="lazy"
+                    sx={{ height: 182, width: 342, objectFit: "cover" }}
+                  />
+                  {hoveredIndex &&
+                    hoveredIndex.id === movie.id &&
+                    hoveredIndex.listName === "allMovies" && (
+                      <Box
+                        sx={{
+                          position: "absolute",
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          display: "flex",
+                          justifyContent: "space-between",
+                          padding: "8px",
+                          background:
+                            "linear-gradient(transparent, rgba(0, 0, 0, 0.7))",
+                          transition: "opacity 0.3s",
+                        }}
+                      >
+                        <Typography
+                          sx={{
+                            color: "white",
+                            fontSize: "1rem",
+                            fontWeight: 300,
+                            padding: "8px",
+                          }}
+                        >
+                          {movie.year} | Rating: {movie.rating}
+                        </Typography>
+                      </Box>
+                    )}
+                </CardActionArea>
+              </Card>
+            </Link>
+          ))}
+          {/* Left arrow for trending movies */}
+          <IconButton
+            color="primary"
+            disabled={allMoviesScrollX === 0}
+            onClick={() => handleAllMoviesScroll(-200)}
+            sx={{
+              position: "absolute",
+              left: 0,
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 1,
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              "&:hover": {
+                backgroundColor: "rgba(0, 0, 0, 0.7)",
+              },
+            }}
+          >
+            <ArrowBackIosRoundedIcon sx={{ color: "white" }} />
+          </IconButton>
+          {/* Right arrow for trending movies */}
+          <IconButton
+            color="primary"
+            onClick={() => handleAllMoviesScroll(200)}
+            sx={{
+              position: "sticky",
+              right: 0,
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 1,
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              "&:hover": {
+                backgroundColor: "rgba(0, 0, 0, 0.7)",
+              },
+            }}
+          >
+            <ArrowForwardIosRoundedIcon sx={{ color: "white" }} />
+          </IconButton>
+        </Box>
+      )}
     </Box>
   );
 }
