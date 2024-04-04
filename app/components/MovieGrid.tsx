@@ -103,8 +103,11 @@ export default function MovieGrid({ isSearching }: MovieGridProps) {
         randomMovies.length < movies.length
       ) {
         const randomIndex = Math.floor(Math.random() * movies.length);
-        if (!usedIndexes.has(randomIndex)) {
-          randomMovies.push(movies[randomIndex]);
+        const randomMovie = movies[randomIndex];
+
+        // Kolla om filmen är trending, om den inte är det lägg till i randomMovies
+        if (!randomMovie.isTrending && !usedIndexes.has(randomIndex)) {
+          randomMovies.push(randomMovie);
           usedIndexes.add(randomIndex);
         }
       }
@@ -127,97 +130,11 @@ export default function MovieGrid({ isSearching }: MovieGridProps) {
 
   return (
     <Box sx={{ backgroundColor: "#000000", p: 2 }}>
-
-      <MovieBanner />
-      <Typography
-        variant="h4"
-        sx={{ color: "white", marginBottom: "2rem", marginTop: "2rem" }}
-      >
-        Trending movies
-      </Typography>
-      <Box
-        ref={trendingListRef}
-        sx={{
-          position: "relative",
-          display: "flex",
-          alignItems: "center",
-          overflowX: "auto",
-          marginBottom: "2rem",
-          gap: 2,
-          scrollbarWidth: "none",
-          "::-webkit-scrollbar": {
-            display: "none",
-          },
-        }}
-      >
-        {/* Trending movies */}
-        {trendingMovies.map((movie, index) => (
-          <Link key={movie.id} href={`/movie/${movie.slug}`} passHref>
-            <Card
-              key={movie.id}
-              onMouseEnter={() => handleMouseEnter(movie.id, "trending")}
-              onMouseLeave={handleMouseLeave}
-              sx={{ position: "relative" }}
-            >
-              <CardActionArea>
-              <CardMedia
-              component="img"
-              src={movie.thumbnail}
-              alt={movie.title}
-              loading="lazy"
-              sx={{ height: 300, width: 240, objectFit: "fill" }}
-              />
-                {hoveredIndex &&
-                  hoveredIndex.id === movie.id &&
-                  hoveredIndex.listName === "trending" && (
-                    <Box
-                      sx={{
-                        position: "absolute",
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        display: "flex",
-                        justifyContent: "space-between",
-                        padding: "8px",
-                        background:
-                          "linear-gradient(transparent, rgba(0, 0, 0, 0.7))",
-                        transition: "opacity 0.3s",
-                      }}
-                    >
-                      <Typography
-                        sx={{
-                          color: "white",
-                          fontSize: "1rem",
-                          fontWeight: 300,
-                          padding: "8px",
-                        }}
-                      >
-                        {movie.year} | Rating: {movie.rating}
-                      </Typography>
-                      <BookmarkButton slug={movie.slug} />
-                    </Box>
-                  )}
-              </CardActionArea>
-            </Card>
-          </Link>
-        ))}
-        {/* Left arrow for trending movies */}
-        <IconButton
-          color="primary"
-          disabled={trendingScrollX === 0}
-          onClick={() => handleTrendingScroll(-200)}
-          sx={{
-            position: "absolute",
-            left: 0,
-            top: "50%",
-            transform: "translateY(-50%)",
-            zIndex: 1,
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            "&:hover": {
-              backgroundColor: "rgba(0, 0, 0, 0.7)",
-            },
-          }}
-
+      {!isSearching && <MovieBanner />}
+      {!isSearching && (
+        <Typography
+          variant="h4"
+          sx={{ color: "white", marginBottom: "2rem", marginTop: "2rem" }}
         >
           Trending movies
         </Typography>
@@ -238,64 +155,27 @@ export default function MovieGrid({ isSearching }: MovieGridProps) {
             },
           }}
         >
-
-          <ArrowForwardIosRoundedIcon sx={{ color: "white" }} />
-        </IconButton>
-      </Box>
-
-      <Typography variant="h4" sx={{ color: "white", marginBottom: "2rem" }}>
-        Recommended movies
-      </Typography>
-      <Box
-        ref={recommendedListRef}
-        sx={{
-          position: "relative",
-          display: "flex",
-          alignItems: "center",
-          overflowX: "auto",
-          marginBottom: "2rem",
-          gap: 2,
-          scrollbarWidth: "none",
-          "::-webkit-scrollbar": {
-            display: "none",
-          },
-        }}
-      >
-        {randomMovies.map((movie: any, index: number) => (
-          <Link key={movie.id} href={`/movie/${movie.slug}`} passHref>
-            <Card
-              key={movie.id}
-              onMouseEnter={() => handleMouseEnter(movie.id, "recommended")}
-              onMouseLeave={handleMouseLeave}
-              sx={{ position: "relative" }}
-            >
-              <CardActionArea>
-              <CardMedia
-              component="img"
-              src={movie.thumbnail}
-              alt={movie.title}
-              loading="lazy"
-              sx={{ height: 300, width: 240, objectFit: "fill" }}
-              />
-                {hoveredIndex &&
-                  hoveredIndex.id === movie.id &&
-                  hoveredIndex.listName === "recommended" && (
-                    <Box
-                      sx={{
-                        position: "absolute",
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        display: "flex",
-                        justifyContent: "space-between",
-                        padding: "8px",
-                        background:
-                          "linear-gradient(transparent, rgba(0, 0, 0, 0.7))",
-                        transition: "opacity 0.3s",
-                      }}
-                    >
-                      <Typography
-
+          {/* Trending movies */}
+          {trendingMovies.map((movie, index) => (
+            <Link key={movie.id} href={`/movie/${movie.slug}`} passHref>
+              <Card
+                key={movie.id}
+                onMouseEnter={() => handleMouseEnter(movie.id, "trending")}
+                onMouseLeave={handleMouseLeave}
+                sx={{ position: "relative" }}
+              >
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    src={movie.thumbnail}
+                    alt={movie.title}
+                    loading="lazy"
+                    sx={{ height: 300, width: 240, objectFit: "fill" }}
+                  />
+                  {hoveredIndex &&
+                    hoveredIndex.id === movie.id &&
+                    hoveredIndex.listName === "trending" && (
+                      <Box
                         sx={{
                           position: "absolute",
                           bottom: 0,
@@ -387,68 +267,26 @@ export default function MovieGrid({ isSearching }: MovieGridProps) {
             },
           }}
         >
-
-          <ArrowForwardIosRoundedIcon sx={{ color: "white" }} />
-        </IconButton>
-      </Box>
-
-      <Typography
-        variant="h4"
-        sx={{ color: "white", marginBottom: "2rem", marginTop: "2rem" }}
-      >
-        Drama
-      </Typography>
-
-      <Box
-        ref={genreListRef}
-        sx={{
-          position: "relative",
-          display: "flex",
-          alignItems: "center",
-          overflowX: "auto",
-          marginBottom: "2rem",
-          gap: 2,
-          scrollbarWidth: "none",
-          "::-webkit-scrollbar": {
-            display: "none",
-          },
-        }}
-      >
-        {genreMovies.map((movie, index) => (
-          <Link key={movie.id} href={`/movie/${movie.slug}`} passHref>
-            <Card
-              key={movie.id}
-              onMouseEnter={() => handleMouseEnter(movie.id, "genre")}
-              onMouseLeave={handleMouseLeave}
-              sx={{ position: "relative" }}
-            >
-              <CardActionArea>
-              <CardMedia
-              component="img"
-              src={movie.thumbnail}
-              alt={movie.title}
-              loading="lazy"
-              sx={{ height: 300, width: 240, objectFit: "fill" }}
-              />
-                {hoveredIndex &&
-                  hoveredIndex.id === movie.id &&
-                  hoveredIndex.listName === "genre" && (
-                    <Box
-                      sx={{
-                        position: "absolute",
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        display: "flex",
-                        justifyContent: "space-between",
-                        padding: "8px",
-                        background:
-                          "linear-gradient(transparent, rgba(0, 0, 0, 0.7))",
-                        transition: "opacity 0.3s",
-                      }}
-                    >
-                      <Typography
-
+          {randomMovies.map((movie: any, index: number) => (
+            <Link key={movie.id} href={`/movie/${movie.slug}`} passHref>
+              <Card
+                key={movie.id}
+                onMouseEnter={() => handleMouseEnter(movie.id, "recommended")}
+                onMouseLeave={handleMouseLeave}
+                sx={{ position: "relative" }}
+              >
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    src={movie.thumbnail}
+                    alt={movie.title}
+                    loading="lazy"
+                    sx={{ height: 300, width: 240, objectFit: "fill" }}
+                  />
+                  {hoveredIndex &&
+                    hoveredIndex.id === movie.id &&
+                    hoveredIndex.listName === "recommended" && (
+                      <Box
                         sx={{
                           position: "absolute",
                           bottom: 0,
@@ -544,65 +382,26 @@ export default function MovieGrid({ isSearching }: MovieGridProps) {
             },
           }}
         >
-
-          <ArrowForwardIosRoundedIcon sx={{ color: "white" }} />
-        </IconButton>
-      </Box>
-
-      <Typography variant="h4" sx={{ color: "white", marginBottom: "2rem" }}>
-        All movies
-      </Typography>
-      <Box
-        ref={allMoviesListRef}
-        sx={{
-          position: "relative",
-          display: "flex",
-          alignItems: "center",
-          overflowX: "auto",
-          marginBottom: "2rem",
-          gap: 2,
-          scrollbarWidth: "none",
-          "::-webkit-scrollbar": {
-            display: "none",
-          },
-        }}
-      >
-        {/* All movies */}
-        {movies.map((movie, index) => (
-          <Link key={movie.id} href={`/movie/${movie.slug}`} passHref>
-            <Card
-              key={movie.id}
-              onMouseEnter={() => handleMouseEnter(movie.id, "allMovies")}
-              onMouseLeave={handleMouseLeave}
-              sx={{ position: "relative" }}
-            >
-              <CardActionArea>
-              <CardMedia
-              component="img"
-              src={movie.thumbnail}
-              alt={movie.title}
-              loading="lazy"
-              sx={{ height: 300, width: 240, objectFit: "fill" }}
-              />
-                {hoveredIndex &&
-                  hoveredIndex.id === movie.id &&
-                  hoveredIndex.listName === "allMovies" && (
-                    <Box
-                      sx={{
-                        position: "absolute",
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        display: "flex",
-                        justifyContent: "space-between",
-                        padding: "8px",
-                        background:
-                          "linear-gradient(transparent, rgba(0, 0, 0, 0.7))",
-                        transition: "opacity 0.3s",
-                      }}
-                    >
-                      <Typography
-
+          {genreMovies.map((movie, index) => (
+            <Link key={movie.id} href={`/movie/${movie.slug}`} passHref>
+              <Card
+                key={movie.id}
+                onMouseEnter={() => handleMouseEnter(movie.id, "genre")}
+                onMouseLeave={handleMouseLeave}
+                sx={{ position: "relative" }}
+              >
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    src={movie.thumbnail}
+                    alt={movie.title}
+                    loading="lazy"
+                    sx={{ height: 300, width: 240, objectFit: "fill" }}
+                  />
+                  {hoveredIndex &&
+                    hoveredIndex.id === movie.id &&
+                    hoveredIndex.listName === "genre" && (
+                      <Box
                         sx={{
                           position: "absolute",
                           bottom: 0,
@@ -709,7 +508,7 @@ export default function MovieGrid({ isSearching }: MovieGridProps) {
                     src={movie.thumbnail}
                     alt={movie.title}
                     loading="lazy"
-                    sx={{ height: 182, width: 342, objectFit: "cover" }}
+                    sx={{ height: 300, width: 240, objectFit: "fill" }}
                   />
                   {hoveredIndex &&
                     hoveredIndex.id === movie.id &&
