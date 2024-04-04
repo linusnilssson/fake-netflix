@@ -164,7 +164,7 @@ export default function PrimarySearchAppBar() {
       <MenuItem onClick={handleSecondMobileMenuClose}>Home</MenuItem>
       <MenuItem onClick={handleSecondMobileMenuClose}>Series</MenuItem>
       <MenuItem onClick={handleSecondMobileMenuClose}>New</MenuItem>
-      <MenuItem onClick={handleSecondMobileMenuClose}>Popular</MenuItem>
+      <MenuItem onClick={handleSecondMobileMenuClose}>Coming Soon</MenuItem>
       <MenuItem onClick={handleSecondMobileMenuClose}>My List</MenuItem>
     </Menu>
   );
@@ -201,7 +201,9 @@ export default function PrimarySearchAppBar() {
               fontSize: "2rem",
             }}
           >
+            <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
             X-DANI
+            </Link>
           </Typography>
           {/* Använd den nya sökfältet-komponenten här */}
           <SearchBar onSearch={handleSearch} />
@@ -268,7 +270,7 @@ export default function PrimarySearchAppBar() {
               </MenuItem>
               <MenuItem>
                 <Link
-                  href="/popular"
+                  href="/coming-soon"
                   underline="hover"
                   sx={{
                     "&:hover": {
@@ -280,7 +282,7 @@ export default function PrimarySearchAppBar() {
                   <Typography
                     style={{ color: "white", textDecoration: "none" }}
                   >
-                    Popular
+                    Coming Soon
                   </Typography>
                 </Link>
               </MenuItem>
