@@ -41,7 +41,7 @@ export default function ComingSoonPage() {
         background: "linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(34,34,34,1) 100%)" }}>
       <Typography
         variant="h4"
-        sx={{ color: "white", marginBottom: "2rem", marginTop: "5rem" }}
+        sx={{ color: "white", marginBottom: "2rem", marginTop: "2rem" }}
       >
         Coming Soon
       </Typography>
@@ -50,9 +50,14 @@ export default function ComingSoonPage() {
   sx={{
     position: "relative", 
     display: "flex",
-    flexWrap: "nowrap",
+    alignItems: "center",
+    marginBottom: "2rem",
     overflowX: "auto",
     gap: 2,
+    scrollbarWidth: "none",
+    "::-webkit-scrollbar": {
+      display: "none",
+    },
   }}
 >
         {comingSoonMovies.map((movie) => (
